@@ -14,6 +14,8 @@ import AddReview from "./Component/Page/Dashboard/AddReview";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AddAdmin from "./Component/Page/Admin/AddAdmin";
+import AddProducts from "./Component/Page/Dashboard/AddProducts";
+import ManageOrders from "./Component/Page/Dashboard/ManageOrders";
 function App() {
   return (
     <div className="App">
@@ -41,7 +43,14 @@ function App() {
           <Route path="addreview" element={<AddReview></AddReview>}></Route>
           <Route path="addreview" element={<AddReview></AddReview>}></Route>
           <Route path="makeAdmin" element={<AddAdmin></AddAdmin>}></Route>
-          {/* <Route path="myorders" element={<></>}></Route> */}
+          <Route
+            path="addProducts"
+            element={<AddProducts></AddProducts>}
+          ></Route>
+          <Route
+            path="manageOrders"
+            element={<ManageOrders></ManageOrders>}
+          ></Route>
         </Route>
         <Route
           path="purchase/:id"
