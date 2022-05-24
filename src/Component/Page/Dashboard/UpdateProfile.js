@@ -3,7 +3,7 @@ import auth from "../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 const UpdateProfile = ({ treatment, setTreatment, setUsers }) => {
-  const { name, _id } = treatment;
+  const { name } = treatment;
   const [user] = useAuthState(auth);
   console.log(treatment);
   const handleBooking = (event) => {

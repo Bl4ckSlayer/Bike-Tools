@@ -48,6 +48,7 @@ const UpdateProducts = () => {
     //                 img: img
     //             }
     const updatedProduct = {
+      price: data.price,
       quantity: data.quantity,
     };
     console.log(product);
@@ -76,6 +77,11 @@ const UpdateProducts = () => {
 
           <div class="right-add d-flex align-items-center justify-content-center">
             <form onSubmit={handleSubmit(onSubmit)}>
+              <input type="text" value={product[0]?.name} />
+              <img src={product[0]?.img} alt="" />
+              <p>{product[0]?.description}</p>
+              <p>{product[0]?.price}</p>
+              <p>{product[0]?.quantity}</p>
               <div className="input-group w-75 mx-auto">
                 <label className="label">
                   <span className="label-text">Price Per Unit $</span>
@@ -125,7 +131,7 @@ const UpdateProducts = () => {
                 </label>
               </div>
 
-              <div className="input-group w-75 mx-auto">
+              {/* <div className="input-group w-75 mx-auto">
                 <label className="label">
                   <span className="label-text">Photo</span>
                 </label>
@@ -146,10 +152,10 @@ const UpdateProducts = () => {
                     </span>
                   )}
                 </label>
-              </div>
+              </div> */}
 
               <input
-                className="form-submit button-33 w-75 mx-auto mt-4"
+                className="form-submit btn w-75 mx-auto mt-4"
                 type="submit"
                 value="Add"
               />

@@ -66,36 +66,6 @@ const Tools = (props) => {
 
   return (
     <div className="m-12">
-      {/* <div>
-        <input type="checkbox" id="booking-modal-p" class="modal-toggle" />
-        <div class="modal">
-          <div class="modal-box relative">
-            <label
-              for="booking-modal-p"
-              class="btn btn-sm btn-circle absolute right-2 top-2"
-            >
-              ✕
-            </label>
-            <form
-              onSubmit={changeStatus}
-              className="grid text-center items-center justify-center grid-1 gap-4 my-10"
-            >
-              <label htmlFor="name">Quantity</label>
-              <input
-                name="quantity"
-                type="number"
-                placeholder="quantity"
-                class="input input-bordered input-primary w-full max-w-xs"
-              />
-
-              <input type="submit" value="Submit" />
-            </form>
-            <div class="modal-action">
-              <label for="booking-modal-p" class="btn"></label>
-            </div>
-          </div>
-        </div>
-      </div> */}
       {/* delete  */}
       <div>
         <input type="checkbox" id="my-modal-d" class="modal-toggle" />
