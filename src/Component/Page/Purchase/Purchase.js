@@ -18,7 +18,7 @@ const Purchase = () => {
     fetch(`http://localhost:5000/purchase/${id}`)
       .then((res) => res.json())
       .then((data) => setTool(data));
-  }, [tool, id]);
+  }, []);
   const { _id, name, quantity, description, price, img } = tool;
 
   const onSubmit = async (data) => {

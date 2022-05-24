@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import auth from "../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
@@ -9,10 +9,9 @@ const UpdateProfile = ({ treatment, setTreatment }) => {
   const handleBooking = (event) => {
     event.preventDefault();
     const users = {
-      _id: _id,
       name: event.target.name.value,
-      email: user?.email,
       phone: event.target.phone.value,
+      address: event.target.address.value,
     };
     fetch(`http://localhost:5000/user/update/${user?.email}`, {
       method: "PUT",
@@ -42,20 +41,26 @@ const UpdateProfile = ({ treatment, setTreatment }) => {
           </label>
           <h3 class="font-bold text-lg">{name}</h3>
 
-          <form onSubmit={handleBooking} className="grid grid-1 gap-4 my-10">
+          <form
+            onSubmit={handleBooking}
+            className="grid text-center items-center justify-center grid-1 gap-4 my-10"
+          >
+            <label htmlFor="name">Name</label>
             <input
               name="name"
               type="name"
+              placeholder="Address"
               value={user?.displayName || ""}
               class="input input-bordered input-primary w-full max-w-xs"
             />
+            <label htmlFor="address">Address</label>
             <input
-              name="email"
-              type="email"
-              disabled
-              value={user?.email || ""}
+              name="address"
+              placeholder="address"
+              type="text"
               class="input input-bordered input-primary w-full max-w-xs"
-            />
+            />{" "}
+            <label htmlFor="phone">Phone</label>
             <input
               name="phone"
               type="phone"
@@ -63,7 +68,6 @@ const UpdateProfile = ({ treatment, setTreatment }) => {
               required
               class="input input-bordered input-primary w-full max-w-xs"
             />
-
             <input type="submit" value="Submit" class="btn w-full max-w-xs" />
           </form>
           <div class="modal-action"></div>

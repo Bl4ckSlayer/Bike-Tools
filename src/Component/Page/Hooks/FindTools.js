@@ -7,7 +7,8 @@ const FindTools = () => {
     fetch("http://localhost:5000/service")
       .then((res) => res.json())
       .then((data) => setFindTools(data));
-  }, [findTools]);
+  }, []);
+
   return [findTools, setFindTools];
 };
 

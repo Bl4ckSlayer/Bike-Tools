@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -27,12 +26,10 @@ const Login = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
-  useEffect(() => {
-    if (token) {
-      console.log(token);
-      navigate(from, { replace: true });
-    }
-  }, [token, from, navigate]);
+  if (token) {
+    console.log(token);
+    navigate(from, { replace: true });
+  }
 
   if (loading || gLoading) {
     return <Loading></Loading>;
