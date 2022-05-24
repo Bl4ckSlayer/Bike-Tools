@@ -3,67 +3,12 @@ import { toast } from "react-toastify";
 const ManageSingleOrders = (props) => {
   const { orders, setOrders } = props;
   const [modalShow, setModalShow] = useState(false);
-  const {
-    name,
-    description,
-    price,
-    totalPrice,
-    quantity,
-    productCode,
-    img,
-    status,
-    _id,
-    paid,
-    email,
-    userName,
-    adress,
-    phone,
-  } = props.order;
+  const { status, _id, paid } = props.order;
   const changeStatus = (e) => {
-    // if (_id) {
-    //   const updatedProduct = {
-    //     name,
-    //     description,
-    //     price,
-    //     totalPrice,
-    //     quantity,
-    //     productCode,
-    //     img,
-    //     status: "Shipped",
-    //     userName,
-    //     adress,
-    //     phone,
-    //     email,
-    //   };
-    // } else {
-    //   const updatedProduct = {
-    //     name,
-    //     description,
-    //     price,
-    //     totalPrice,
-    //     quantity,
-    //     productCode,
-    //     img,
-    //     status: "Shipped",
-    //     userName,
-    //     adress,
-    //     phone,
-    //     email,
-    //   };
-    // }
     const updatedProduct = {
-      name,
-      description,
-      price,
-      totalPrice,
       quantity: e.target.quantity.value,
-      productCode,
-      img,
+
       status: "Shipped",
-      userName,
-      adress,
-      phone,
-      email,
     };
     console.log(updatedProduct.quantity);
     fetch(`http://localhost:5000/order?id=${_id}`, {
@@ -117,43 +62,6 @@ const ManageSingleOrders = (props) => {
     <div>
       <div className="p-5">
         <div>
-          <input type="checkbox" id="my-modal-2" class="modal-toggle" />
-          <div class="modal">
-            <div class="modal-box relative">
-              <label
-                for="my-modal-2"
-                class="btn btn-sm btn-circle absolute right-2 top-2"
-              >
-                ✕
-              </label>
-              <div>
-                <label htmlFor="quantity">Quantity</label>
-                <input
-                  type="number"
-                  name="quantity"
-                  required
-                  class="input input-bordered input-primary w-full max-w-xs"
-                />
-              </div>
-              <p class="py-4">
-                You've been selected for a chance to get one year of
-                subscription to use Wikipedia for free!
-              </p>
-              <div class="modal-action">
-                <label
-                  for="my-modal-2"
-                  onClick={() => {
-                    changeStatus(_id);
-                  }}
-                  class="btn"
-                >
-                  Delete
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
           <input type="checkbox" id="my-modal-3" class="modal-toggle" />
           <div class="modal">
             <div class="modal-box relative">
@@ -185,11 +93,11 @@ const ManageSingleOrders = (props) => {
           </div>
         </div>
         <div className="card border-0">
-          <img src={img} class="card__image" alt="" />
+          {/* <img src={img} class="card__image" alt="" /> */}
           <div class="card__overlay">
             <div class="card__header">
               <div class="card__header-text fs-1">
-                <h3 class="card__title">{name}</h3>
+                {/* <h3 class="card__title">{name}</h3> */}
                 {!paid ? (
                   <h4 className="card__title">
                     Payment: <span className="text-danger">Pending</span>
@@ -210,12 +118,12 @@ const ManageSingleOrders = (props) => {
                 )}
               </div>
             </div>
-            <h4 className="card__description pb-2 fs-5">{description}</h4>
-            <h5 className="card__description pb-2 fs-5">{productCode}</h5>
+            {/* <h4 className="card__description pb-2 fs-5">{description}</h4> */}
+            {/* <h5 className="card__description pb-2 fs-5">{productCode}</h5> */}
             <h5 className="card__description fs-5 pb-2">
-              Price: ${totalPrice}
+              {/* Price: ${totalPrice} */}
             </h5>
-            <h5 className="card__description">Quantity: {quantity}</h5>
+            {/* <h5 className="card__description">Quantity: {quantity}</h5> */}
             {status === "Pending" && (
               <div className="col-12">
                 <button
@@ -234,15 +142,6 @@ const ManageSingleOrders = (props) => {
               class="btn btn-secondary text-white text-center"
             >
               DELETE
-            </label>
-            <label
-              for="my-modal-2"
-              onClick={() => {
-                setModalShow(true);
-              }}
-              class="btn btn-secondary text-white text-center"
-            >
-              UPDATE
             </label>
           </div>
         </div>

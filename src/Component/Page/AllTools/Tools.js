@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 const Tools = (props) => {
@@ -15,37 +14,6 @@ const Tools = (props) => {
   const { _id } = props.tool;
   console.log(_id);
 
-  const changeStatus = (event) => {
-    event.preventDefault();
-    const updatedProduct = {
-      quantity: event.target.quantity.value,
-    };
-    console.log(_id, updatedProduct);
-    console.log(updatedProduct.quantity);
-    fetch(`http://localhost:5000/service?id=${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedProduct),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          toast(`Congrates your submition ios complete`);
-        }
-      });
-
-    fetch(`http://localhost:5000/service`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setFindTools(data));
-    // document.getElementById("booking-modal-p").style.display("hidden");
-  };
   const handleDelete = (_id) => {
     console.log("deleted");
     const url = `http://localhost:5000/service?id=${_id}`;

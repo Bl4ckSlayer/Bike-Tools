@@ -21,28 +21,6 @@ const AddAdmin = () => {
   }
   return (
     <div>
-      {/* <div class="overflow-x-auto">
-        <table class="table table-zebra w-full">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Contact</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user, index) => (
-              <User
-                key={user._id}
-                user={user}
-                refetch={refetch}
-                index={index}
-              ></User>
-            ))}
-          </tbody>
-        </table>
-      </div> */}
       <div class="overflow-x-auto">
         <table class="table w-full">
           <thead>

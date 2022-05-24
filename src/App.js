@@ -18,6 +18,7 @@ import AddProducts from "./Component/Page/Dashboard/AddProducts";
 import ManageOrders from "./Component/Page/Dashboard/ManageOrders";
 import ManageProducts from "./Component/Page/Dashboard/ManageProducts";
 import UpdateProducts from "./Component/Page/Dashboard/UpdateProducts";
+import Payment from "./Component/Page/Payment/Payment";
 function App() {
   return (
     <div>
@@ -43,7 +44,7 @@ function App() {
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
           <Route path="myorders" element={<MyOrders></MyOrders>}></Route>
           <Route path="addreview" element={<AddReview></AddReview>}></Route>
-          <Route path="addreview" element={<AddReview></AddReview>}></Route>
+
           <Route path="makeAdmin" element={<AddAdmin></AddAdmin>}></Route>
           <Route
             path="manageProducts"
@@ -63,6 +64,14 @@ function App() {
           element={
             <RequireAuth>
               <Purchase></Purchase>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="payment/:id"
+          element={
+            <RequireAuth>
+              <Payment></Payment>
             </RequireAuth>
           }
         ></Route>

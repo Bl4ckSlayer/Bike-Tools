@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SingleOrder = (props) => {
   const { products, setProducts } = props;
-
+  const navigate = useNavigate();
+  const navigateTo = (id) => {
+    navigate(`/payment/${id}`);
+  };
   const {
     name,
     description,
@@ -102,17 +106,18 @@ const SingleOrder = (props) => {
             }}
             class="btn btn-secondary text-white text-center"
           >
-            Update Profile
+            Delete
           </label>
-          {/* {!paid && (
+          {!paid && (
             <button
-              className="button-33 my-3"
-              variant="primary"
-              onClick={() => setModalShow(true)}
+              className="btn btn-secondary mx-4"
+              onClick={() => {
+                navigateTo(_id);
+              }}
             >
-              Delete Product
+              Pay
             </button>
-          )} */}
+          )}
         </div>
       </div>
       {/* <MyVerticallyCenteredModal

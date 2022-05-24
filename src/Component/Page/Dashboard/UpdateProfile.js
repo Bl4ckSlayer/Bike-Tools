@@ -2,7 +2,7 @@
 import auth from "../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
-const UpdateProfile = ({ treatment, setTreatment, setUsers }) => {
+const UpdateProfile = ({ treatment, setTreatment, refetch }) => {
   const { name } = treatment;
   const [user] = useAuthState(auth);
   console.log(treatment);
@@ -21,6 +21,7 @@ const UpdateProfile = ({ treatment, setTreatment, setUsers }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
+          refetch();
           toast(`Congrates your submition ios complete`);
         } else {
           toast.error(`you already havedata`);

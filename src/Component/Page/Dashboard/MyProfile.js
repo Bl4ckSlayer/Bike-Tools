@@ -1,57 +1,70 @@
-import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import UpdateProfile from "./UpdateProfile";
 import Loading from "../Shared/Loading/Loading";
-
+import { useQuery } from "react-query";
 const MyProfile = () => {
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const [user, loading] = useAuthState(auth);
   const [treatment, setTreatment] = useState(null);
-  const navigate = useNavigate();
 
   // console.log(user.email);
-
-  useEffect(() => {
+  const {
+    data: myUsers,
+    isLoading,
+    refetch,
+  } = useQuery("myUsers", () =>
     fetch(`http://localhost:5000/user?email=${user?.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
-    })
-      .then((res) => {
-        if (res.status === 401 || res.status === 403) {
-          signOut(auth);
-          localStorage.removeItem("accessToken");
-          navigate("/");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        console.log("data", data[0]);
-        setUsers(data[0]);
-      });
-  }, [user]);
-
-  if (loading) {
+    }).then((res) => res.json())
+  );
+  if (isLoading) {
     return <Loading></Loading>;
   }
 
-  console.log(users);
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/user?email=${user?.email}`, {
+  //     method: "GET",
+  //     headers: {
+  //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //     },
+  //   })
+  //     .then((res) => {
+  //       if (res.status === 401 || res.status === 403) {
+  //         signOut(auth);
+  //         localStorage.removeItem("accessToken");
+  //         navigate("/");
+  //       }
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       console.log("data", data[0]);
+  //       setUsers(data[0]);
+  //     });
+  // }, [user]);
+
+  // if (loading) {
+  //   return <Loading></Loading>;
+  // }
+
+  console.log(myUsers);
 
   return (
     <div>
-      <h1>{users?.address}</h1>
-      <h1>{users?.name}</h1>
-      <h1>{users?.email}</h1>
-      <h1>{users?.phone}</h1>{" "}
+      <h1>{myUsers[0]?.address}</h1>
+      <h1>{myUsers[0]?.name}</h1>
+      <h1>{myUsers[0]?.email}</h1>
+      <h1>{myUsers[0]?.phone}</h1>{" "}
       <div class="card-actions justify-center">
         <label
           for="booking-modal"
           onClick={() => {
-            setTreatment(users);
+            setTreatment(myUsers[0]);
           }}
           class="btn modal-button btn-secondary text-white text-center"
         >
@@ -60,10 +73,10 @@ const MyProfile = () => {
       </div>
       {treatment && (
         <UpdateProfile
-          key={users._id}
+          key={myUsers[0]?._id}
           treatment={treatment}
           setTreatment={setTreatment}
-          setUsers={setUsers}
+          refetch={refetch}
         ></UpdateProfile>
       )}
     </div>
