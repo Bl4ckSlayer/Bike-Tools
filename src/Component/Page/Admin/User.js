@@ -51,14 +51,14 @@ const User = ({ user, refetch, index }) => {
       <td>{phone}</td>
       <td>
         {role !== "admin" && (
-          <button onClick={makeAdmin} class="button-33">
+          <button onClick={makeAdmin} class="btn btn-xs">
             Make Admin
           </button>
         )}
       </td>
       <td>
         {role === "admin" && (
-          <button onClick={() => removeAdmin()} class="button-33">
+          <button onClick={() => removeAdmin()} class="btn btn-xs">
             Remove Admin
           </button>
         )}

@@ -17,9 +17,10 @@ import AddAdmin from "./Component/Page/Admin/AddAdmin";
 import AddProducts from "./Component/Page/Dashboard/AddProducts";
 import ManageOrders from "./Component/Page/Dashboard/ManageOrders";
 import ManageProducts from "./Component/Page/Dashboard/ManageProducts";
+import UpdateProducts from "./Component/Page/Dashboard/UpdateProducts";
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -62,6 +63,14 @@ function App() {
           element={
             <RequireAuth>
               <Purchase></Purchase>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="update/:id"
+          element={
+            <RequireAuth>
+              <UpdateProducts></UpdateProducts>
             </RequireAuth>
           }
         ></Route>

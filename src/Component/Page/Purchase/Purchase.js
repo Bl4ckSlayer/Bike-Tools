@@ -74,6 +74,9 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => {
         toast.success(`${name} have been updated`);
+        fetch(`http://localhost:5000/purchase/${id}`)
+          .then((res) => res.json())
+          .then((data) => setTool(data));
       });
     reset();
   };
@@ -185,7 +188,6 @@ const Purchase = () => {
               type="text"
               placeholder="Product Quantity"
               value={quantity}
-              readOnly
               className="input input-bordered w-full max-w-xs"
               {...register("prevQuantity")}
             />
@@ -198,6 +200,7 @@ const Purchase = () => {
             <input
               type="number"
               placeholder="Product Quantity"
+              // value={}
               min={10}
               className="input input-bordered w-full max-w-xs"
               {...register("quantity")}

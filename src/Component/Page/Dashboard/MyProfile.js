@@ -39,19 +39,21 @@ const MyProfile = () => {
     return <Loading></Loading>;
   }
 
+  console.log(users);
+
   return (
     <div>
-      <h1>{users.address}</h1>
-      <h1>{users.name}</h1>
-      <h1>{users.email}</h1>
-      <h1>{users.phone}</h1>{" "}
+      <h1>{users?.address}</h1>
+      <h1>{users?.name}</h1>
+      <h1>{users?.email}</h1>
+      <h1>{users?.phone}</h1>{" "}
       <div class="card-actions justify-center">
         <label
           for="booking-modal"
           onClick={() => {
             setTreatment(users);
           }}
-          class="btn btn-secondary text-white text-center"
+          class="btn modal-button btn-secondary text-white text-center"
         >
           Update Profile
         </label>
@@ -61,6 +63,7 @@ const MyProfile = () => {
           key={users._id}
           treatment={treatment}
           setTreatment={setTreatment}
+          setUsers={setUsers}
         ></UpdateProfile>
       )}
     </div>

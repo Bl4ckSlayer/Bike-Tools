@@ -2,7 +2,7 @@
 import auth from "../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
-const UpdateProfile = ({ treatment, setTreatment }) => {
+const UpdateProfile = ({ treatment, setTreatment, setUsers }) => {
   const { name, _id } = treatment;
   const [user] = useAuthState(auth);
   console.log(treatment);
@@ -59,7 +59,7 @@ const UpdateProfile = ({ treatment, setTreatment }) => {
               placeholder="address"
               type="text"
               class="input input-bordered input-primary w-full max-w-xs"
-            />{" "}
+            />
             <label htmlFor="phone">Phone</label>
             <input
               name="phone"
@@ -70,7 +70,6 @@ const UpdateProfile = ({ treatment, setTreatment }) => {
             />
             <input type="submit" value="Submit" class="btn w-full max-w-xs" />
           </form>
-          <div class="modal-action"></div>
         </div>
       </div>
     </div>

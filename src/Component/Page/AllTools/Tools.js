@@ -8,6 +8,9 @@ const Tools = (props) => {
   const newPath = (id) => {
     navigate(`/purchase/${id}`);
   };
+  const updatePath = (id) => {
+    navigate(`/update/${id}`);
+  };
 
   const { _id } = props.tool;
   console.log(_id);
@@ -136,11 +139,11 @@ const Tools = (props) => {
               <>
                 <label
                   // for="booking-modal"
-                  disabled={tool.length === 0}
+                  // disabled={tool.length === 0}
                   onClick={() => {
                     newPath(tool._id);
                   }}
-                  className="btn btn-secondary text-white text-center"
+                  className="btn modal-button btn-secondary  text-white text-center"
                 >
                   Purchase
                 </label>
@@ -148,14 +151,16 @@ const Tools = (props) => {
             ) : (
               <>
                 <button
-                  // for="booking-modal-p"
                   className="btn btn-secondary text-white text-center"
+                  onClick={() => {
+                    updatePath(tool._id);
+                  }}
                 >
                   Update
                 </button>
                 <label
                   for="my-modal-d"
-                  className="btn btn-secondary text-white text-center"
+                  className="btn btn-secondary  text-white text-center"
                 >
                   Delete Item
                 </label>
