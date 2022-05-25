@@ -8,8 +8,6 @@ const ManageSingleOrders = (props) => {
 
   const changeStatus = (e) => {
     const updatedProduct = {
-      quantity: e.target.quantity.value,
-
       status: "Shipped",
     };
     console.log(updatedProduct.quantity);
@@ -33,7 +31,7 @@ const ManageSingleOrders = (props) => {
         setOrders(orders);
       });
 
-    fetch(`http://localhost:5000/orders`, {
+    fetch(`http://localhost:5000/order`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -109,7 +107,7 @@ const ManageSingleOrders = (props) => {
                 </button>
               </div>
             )}
-            {!transactionId && (
+            {(!transactionId || !paid) && (
               <label
                 onClick={() => setdeleteOrder(props.order)}
                 for="my-modal-6"

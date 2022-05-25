@@ -18,6 +18,7 @@ const SingleOrder = (props) => {
     _id,
     status,
     totalPrice,
+    transactionId,
   } = props.product;
 
   const handleBooking = () => {
@@ -74,24 +75,6 @@ const SingleOrder = (props) => {
           <div class="card__header">
             <div class="card__header-text fs-1">
               <h3 class="card__title">{name}</h3>
-              {!paid ? (
-                <h4 className="card__title">
-                  Payment: <span className="text-danger">Pending</span>
-                </h4>
-              ) : (
-                <h4 className="card__title">
-                  Payment: <span className="text-success">Paid</span>
-                </h4>
-              )}
-              {status === "Pending" ? (
-                <h4 className="card__title">
-                  Status: <span className="text-danger">{status}</span>
-                </h4>
-              ) : (
-                <h4 className="card__title">
-                  Status: <span className="text-success">{status}</span>
-                </h4>
-              )}
             </div>
           </div>
           <h4 className="card__description pb-2 fs-5">ddd {description}</h4>
@@ -114,8 +97,8 @@ const SingleOrder = (props) => {
                 Payment: <span className="text-success">Paid</span>
               </h4>
               <p>
-                Transaction ID :{" "}
-                {/* <span className="text-success">{transactionId}</span> */}
+                Transaction ID :
+                <span className="text-success">{transactionId}</span>
               </p>
             </div>
           )}
@@ -130,7 +113,7 @@ const SingleOrder = (props) => {
           )}
 
           {totalPrice}
-          {quantity}
+          <h1>{quantity}</h1>
           {!paid && (
             <label
               onClick={() => setdeleteOrder(props.product)}

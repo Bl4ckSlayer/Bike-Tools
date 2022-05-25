@@ -20,27 +20,17 @@ const DeleteOrder = ({
       .then((data) => {
         console.log(data);
         if (data.deletedCount > 0) {
-          const remaining = products.filter((item) => item._id !== _id);
-          const orderRemaining = orders.filter((item) => item._id !== _id);
+          if (products) {
+            const remaining = products.filter((item) => item._id !== _id);
+            setProducts(remaining);
+          } else {
+            const orderRemaining = orders.filter((item) => item._id !== _id);
+            setOrders(orderRemaining);
+          }
 
-          //   toast.success("Order successfully deleted");
-          setOrders(orderRemaining);
-          setProducts(remaining);
           setdeleteOrder(null);
         }
       });
-    // const url = ` http://localhost:5000/orders?id=${_id}`;
-    // fetch(url, {
-    //   method: "DELETE",
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     if (data.deletedCount) {
-    //       toast.success("Order successfully deleted");
-    //       setdeleteOrder(null);
-    //     }
-    //   });
   };
 
   return (
