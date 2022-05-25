@@ -37,11 +37,11 @@ const AddProducts = () => {
             name: data.name,
             image: image,
             description: data.description,
-            // minOrderQuantity: data.minOrderQuantity,
+            minOrderQuantity: data.minOrderQuantity,
             quantity: data.quantity,
             price: data.price,
           };
-          // send to your database
+
           fetch("http://localhost:5000/service", {
             method: "POST",
             headers: {
@@ -63,8 +63,8 @@ const AddProducts = () => {
       });
   };
   return (
-    <div className="text-black">
-      <h2 className="text-4xl text-white mb-8 font-extrabold text-center">
+    <div className="text-black    mt-16 ml-20">
+      <h2 className="text-4xl mb-8 font-extrabold text-center grid ">
         Add a New Product
       </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -127,7 +127,7 @@ const AddProducts = () => {
             )}
           </label>
         </div>
-        {/* <div className="form-control w-full max-w-xs">
+        <div className="form-control w-full max-w-xs">
           <input
             type="number"
             placeholder="Minimum Order Quantity"
@@ -146,7 +146,7 @@ const AddProducts = () => {
               </span>
             )}
           </label>
-        </div> */}
+        </div>
         <div className="form-control w-full max-w-xs">
           <input
             type="number"

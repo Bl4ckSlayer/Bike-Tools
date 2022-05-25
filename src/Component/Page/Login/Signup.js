@@ -324,7 +324,7 @@ const Signup = () => {
   }
 
   if (token) {
-    navigate("/appoinment");
+    navigate("/");
   }
 
   const onSubmit = async (data) => {

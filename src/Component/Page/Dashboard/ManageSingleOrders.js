@@ -3,8 +3,20 @@ import { toast } from "react-toastify";
 const ManageSingleOrders = (props) => {
   const { orders, setOrders, setdeleteOrder } = props;
 
-  const { status, _id, paid, description, name, email, transactionId } =
-    props.order;
+  const {
+    status,
+    _id,
+    paid,
+    description,
+    name,
+    email,
+    transactionId,
+    image,
+    address,
+    phone,
+    totalPrice,
+    quantity,
+  } = props.order;
 
   const changeStatus = (e) => {
     const updatedProduct = {
@@ -61,62 +73,55 @@ const ManageSingleOrders = (props) => {
 
   return (
     <div>
-      <div className="p-5">
-        <div className="card border-0">
-          {/* <img src={img} class="card__image" alt="" /> */}
-          <div class="card__overlay">
-            <div class="card__header">
-              <div class="card__header-text fs-1">
-                {/* <h3 class="card__title">{name}</h3> */}
-                {!paid ? (
-                  <h4 className="card__title">
-                    Payment: <span className="text-danger">Pending</span>
-                  </h4>
-                ) : (
-                  <h4 className="card__title">
-                    Payment: <span className="text-success">Paid</span>
-                  </h4>
-                )}
-                {status === "Pending" ? (
-                  <h4 className="card__title">
-                    Status: <span className="text-danger">{status}</span>
-                  </h4>
-                ) : (
-                  <h4 className="card__title">
-                    Status: <span className="text-success">{status}</span>
-                  </h4>
-                )}
-              </div>
-            </div>
-            <h4 className="card__description pb-2 fs-5">{description}</h4>
-            <h4 className="card__description pb-2 fs-5">{_id}</h4>
-            <h4 className="card__description pb-2 fs-5">{name}</h4>
-            <h4 className="card__description pb-2 fs-5">{email}</h4>
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <figure class="px-10 pt-10">
+          <img src={image} alt="Shoes" class="rounded-xl" />
+        </figure>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title"> Name: {name}</h2>
+          <p>Address:{address}</p>
+          <h2 class="card-title"> Name: {email}</h2>
+          <h2 class="card-title"> Name: {phone}</h2>
+          <h2 class="card-title"> Name: {totalPrice}</h2>
+          <h2 class="card-title"> Name: {quantity}</h2>
 
-            <h5 className="card__description fs-5 pb-2">
-              {/* Price: ${totalPrice} */}
-            </h5>
-            {/* <h5 className="card__description">Quantity: {quantity}</h5> */}
-            {status === "Pending" && (
-              <div className="col-12">
-                <button
-                  onClick={() => changeStatus()}
-                  className="btn btn-secondary text-white text-center"
-                >
-                  Shipped
-                </button>
-              </div>
-            )}
-            {(!transactionId || !paid) && (
-              <label
-                onClick={() => setdeleteOrder(props.order)}
-                for="my-modal-6"
-                class="btn btn-xs btn-error"
+          {!paid ? (
+            <h4 className="card__title">
+              Payment: <span className="text-danger">Pending</span>
+            </h4>
+          ) : (
+            <h4 className="card__title">
+              Payment: <span className="text-success">Paid</span>
+            </h4>
+          )}
+          {status === "Pending" ? (
+            <h4 className="card__title">
+              Status: <span className="text-danger">{status}</span>
+            </h4>
+          ) : (
+            <h4 className="card__title">
+              Status: <span className="text-success">{status}</span>
+            </h4>
+          )}
+          {status === "Pending" && (
+            <div className="col-12">
+              <button
+                onClick={() => changeStatus()}
+                className="btn btn-accent text-white text-center"
               >
-                Delete
-              </label>
-            )}
-          </div>
+                Shipped
+              </button>
+            </div>
+          )}
+          {!transactionId && (
+            <label
+              onClick={() => setdeleteOrder(props.order)}
+              for="my-modal-6"
+              class="btn  btn-error"
+            >
+              Delete
+            </label>
+          )}
         </div>
       </div>
     </div>

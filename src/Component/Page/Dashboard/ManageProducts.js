@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Tools from "../AllTools/Tools";
 import FindTools from "../Hooks/FindTools";
 import Loading from "../Shared/Loading/Loading";
+import DeleteProducts from "./DeleteProducts";
 
 const ManageProducts = () => {
   const [findTools, setFindTools] = FindTools();
+  const [deleteProduct, setDeleteProduct] = useState(null);
 
   return (
     <div>
@@ -16,9 +18,18 @@ const ManageProducts = () => {
             tool={tool}
             findTools={findTools}
             setFindTools={setFindTools}
+            setDeleteProduct={setDeleteProduct}
           ></Tools>
         ))}
       </div>
+      {deleteProduct && (
+        <DeleteProducts
+          deleteProduct={deleteProduct}
+          setDeleteProduct={setDeleteProduct}
+          setFindTools={setFindTools}
+          findTools={findTools}
+        ></DeleteProducts>
+      )}
     </div>
   );
 };

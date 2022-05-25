@@ -69,7 +69,7 @@ const UpdateProfile = ({ treatment, setTreatment, refetch }) => {
               required
               class="input input-bordered input-primary w-full max-w-xs"
             />
-            <input type="submit" value="Submit" class="btn w-full max-w-xs" />
+            <input type="submit" value="Update" class="btn w-full max-w-xs" />
           </form>
         </div>
       </div>

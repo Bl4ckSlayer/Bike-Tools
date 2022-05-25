@@ -63,7 +63,7 @@ const AddReview = () => {
   }
 
   return (
-    <div className="text-black">
+    <div className="text-black  ml-12 mt-20">
       <h2 className="text-4xl text-white mb-8 font-extrabold text-center">
         Add a Review
       </h2>
