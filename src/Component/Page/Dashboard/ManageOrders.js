@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import DeleteOrder from "./DeleteOrder";
 import ManageSingleOrders from "./ManageSingleOrders";
 
 const ManageOrders = () => {
   const [orders, setOrders] = useState([]);
+  const [deleteOrder, setdeleteOrder] = useState(null);
+
   useEffect(() => {
     fetch("http://localhost:5000/order")
       .then((res) => res.json())
@@ -16,8 +21,17 @@ const ManageOrders = () => {
           order={order}
           orders={orders}
           setOrders={setOrders}
+          setdeleteOrder={setdeleteOrder}
         ></ManageSingleOrders>
       ))}
+      {deleteOrder && (
+        <DeleteOrder
+          orders={orders}
+          setOrders={setOrders}
+          deleteOrder={deleteOrder}
+          setdeleteOrder={setdeleteOrder}
+        ></DeleteOrder>
+      )}
     </div>
   );
 };

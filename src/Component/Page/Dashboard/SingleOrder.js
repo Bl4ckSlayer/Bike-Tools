@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SingleOrder = (props) => {
-  const { products, setProducts } = props;
+  const { products, setProducts, setdeleteOrder } = props;
   const navigate = useNavigate();
   const navigateTo = (id) => {
     navigate(`/payment/${id}`);
@@ -19,9 +19,8 @@ const SingleOrder = (props) => {
     status,
     totalPrice,
   } = props.product;
-  const [modalShow, setModalShow] = useState(false);
 
-  const handleBooking = (_id) => {
+  const handleBooking = () => {
     console.log("deleted");
     const url = `http://localhost:5000/order?id=${_id}`;
     fetch(url, {
@@ -40,7 +39,7 @@ const SingleOrder = (props) => {
   };
   return (
     <div className="p-5">
-      <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+      {/* <input type="checkbox" id="my-modal-3" class="modal-toggle" />
       <div class="modal">
         <div class="modal-box relative">
           <label
@@ -68,7 +67,7 @@ const SingleOrder = (props) => {
             </label>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="card border-0">
         <img src={img} class="card__image" alt="" />
         <div class="card__overlay">
@@ -95,20 +94,12 @@ const SingleOrder = (props) => {
               )}
             </div>
           </div>
-          <h4 className="card__description pb-2 fs-5">{description}</h4>
-          <h5 className="card__description pb-2 fs-5">{productCode}</h5>
+          <h4 className="card__description pb-2 fs-5">ddd {description}</h4>
+
           <h5 className="card__description fs-5 pb-2">Price: ${totalPrice}</h5>
           <h5 className="card__description">Quantity: {quantity}</h5>
-          <label
-            for="my-modal-3"
-            onClick={() => {
-              setModalShow(true);
-            }}
-            class="btn btn-secondary text-white text-center"
-          >
-            Delete
-          </label>
-          {!paid && (
+
+          {!paid ? (
             <button
               className="btn btn-secondary mx-4"
               onClick={() => {
@@ -117,14 +108,40 @@ const SingleOrder = (props) => {
             >
               Pay
             </button>
+          ) : (
+            <div>
+              <h4 className="card__title">
+                Payment: <span className="text-success">Paid</span>
+              </h4>
+              <p>
+                Transaction ID :{" "}
+                {/* <span className="text-success">{transactionId}</span> */}
+              </p>
+            </div>
+          )}
+          {paid && status === "Pending" ? (
+            <h4 className="card__title">
+              Status: <span className="text-danger">{status}</span>
+            </h4>
+          ) : (
+            <h4 className="card__title">
+              Status: <span className="text-success">{status}</span>
+            </h4>
+          )}
+
+          {totalPrice}
+          {quantity}
+          {!paid && (
+            <label
+              onClick={() => setdeleteOrder(props.product)}
+              for="my-modal-6"
+              class="btn btn-xs btn-error"
+            >
+              Delete
+            </label>
           )}
         </div>
       </div>
-      {/* <MyVerticallyCenteredModal
-    show={modalShow}
-    onHide={() => setModalShow(false)}
-  />
-  <ToastContainer></ToastContainer> */}
     </div>
   );
 };

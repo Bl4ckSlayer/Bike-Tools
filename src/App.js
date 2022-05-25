@@ -19,6 +19,7 @@ import ManageOrders from "./Component/Page/Dashboard/ManageOrders";
 import ManageProducts from "./Component/Page/Dashboard/ManageProducts";
 import UpdateProducts from "./Component/Page/Dashboard/UpdateProducts";
 import Payment from "./Component/Page/Payment/Payment";
+import AllRatings from "./Component/Page/AllRatings/AllRatings";
 function App() {
   return (
     <div>
@@ -30,6 +31,14 @@ function App() {
           element={
             <RequireAuth>
               <ManageTools></ManageTools>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="review"
+          element={
+            <RequireAuth>
+              <AllRatings></AllRatings>
             </RequireAuth>
           }
         ></Route>

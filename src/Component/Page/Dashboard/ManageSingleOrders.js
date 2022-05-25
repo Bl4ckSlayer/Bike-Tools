@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 const ManageSingleOrders = (props) => {
-  const { orders, setOrders } = props;
-  const [modalShow, setModalShow] = useState(false);
-  const { status, _id, paid } = props.order;
+  const { orders, setOrders, setdeleteOrder } = props;
+
+  const { status, _id, paid, description, name, email, transactionId } =
+    props.order;
+
   const changeStatus = (e) => {
     const updatedProduct = {
       quantity: e.target.quantity.value,
@@ -40,9 +42,10 @@ const ManageSingleOrders = (props) => {
       .then((res) => res.json())
       .then((data) => setOrders(data));
   };
-  const handleDelete = (_id) => {
-    console.log("deleted");
+  const handleDelete = () => {
+    console.log(_id);
     const url = `http://localhost:5000/order?id=${_id}`;
+    console.log(url);
     fetch(url, {
       method: "DELETE",
     })
@@ -61,37 +64,6 @@ const ManageSingleOrders = (props) => {
   return (
     <div>
       <div className="p-5">
-        <div>
-          <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-          <div class="modal">
-            <div class="modal-box relative">
-              <label
-                for="my-modal-3"
-                class="btn btn-sm btn-circle absolute right-2 top-2"
-              >
-                ✕
-              </label>
-              <h3 class="text-lg font-bold">
-                Congratulations random Interner user!
-              </h3>
-              <p class="py-4">
-                You've been selected for a chance to get one year of
-                subscription to use Wikipedia for free!
-              </p>
-              <div class="modal-action">
-                <label
-                  for="my-modal-3"
-                  onClick={() => {
-                    handleDelete(_id);
-                  }}
-                  class="btn"
-                >
-                  Delete
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="card border-0">
           {/* <img src={img} class="card__image" alt="" /> */}
           <div class="card__overlay">
@@ -118,8 +90,11 @@ const ManageSingleOrders = (props) => {
                 )}
               </div>
             </div>
-            {/* <h4 className="card__description pb-2 fs-5">{description}</h4> */}
-            {/* <h5 className="card__description pb-2 fs-5">{productCode}</h5> */}
+            <h4 className="card__description pb-2 fs-5">{description}</h4>
+            <h4 className="card__description pb-2 fs-5">{_id}</h4>
+            <h4 className="card__description pb-2 fs-5">{name}</h4>
+            <h4 className="card__description pb-2 fs-5">{email}</h4>
+
             <h5 className="card__description fs-5 pb-2">
               {/* Price: ${totalPrice} */}
             </h5>
@@ -134,15 +109,15 @@ const ManageSingleOrders = (props) => {
                 </button>
               </div>
             )}
-            <label
-              for="my-modal-3"
-              onClick={() => {
-                setModalShow(true);
-              }}
-              class="btn btn-secondary text-white text-center"
-            >
-              DELETE
-            </label>
+            {!transactionId && (
+              <label
+                onClick={() => setdeleteOrder(props.order)}
+                for="my-modal-6"
+                class="btn btn-xs btn-error"
+              >
+                Delete
+              </label>
+            )}
           </div>
         </div>
       </div>

@@ -1,111 +1,138 @@
-import React, { useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { Rating } from "react-simple-star-rating";
+import React from "react";
+
 import { toast } from "react-toastify";
-import auth from "../../../firebase.init";
 
+import Loading from "../Shared/Loading/Loading";
+import { useForm } from "react-hook-form";
+import { useQuery } from "react-query";
 const AddReview = () => {
-  // const [rating, setRating] = useState(0);
-  // const handleRating = (rate) => {
-  //   setRating(rate);
-  //   console.log(rating);
-  //   // other logic
-  // };
-  // const [findTools, setFindTools] = FindTools();
-  const [user] = useAuthState(auth);
-  const EventSubmit = (event) => {
-    const newItem = {
-      name: event.target.name.value,
-      ratings: event.target.ratings.value,
-      description: event.target.description.value,
-      email: event.target.email.value,
-    };
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm();
 
-    event.preventDefault();
-    const url = `http://localhost:5000/rating`;
+  const { isLoading } = useQuery("reviews", () =>
+    fetch("http://localhost:5000/rating").then((res) => res.json())
+  );
 
+  const imageStorageKey = "4e369d9a8ccc08de599f3e949fd61ac0";
+  const onSubmit = async (data) => {
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
     fetch(url, {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newItem),
+      body: formData,
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
-        // setFindTools(result);
+        if (result.success) {
+          const image = result.data.url;
+          const reviews = {
+            name: data.name,
+            image: image,
+            description: data.description,
+          };
+          // send to your database
+          fetch("http://localhost:5000/rating", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(reviews),
+          })
+            .then((res) => res.json())
+            .then((inserted) => {
+              if (inserted.insertedId) {
+                toast("Success!");
+                reset();
+              } else {
+                toast("error");
+              }
+            });
+        }
       });
-    // event.target.reset();
-    toast("ratings Added, Check Home page");
-    event.target.reset();
   };
 
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+
   return (
-    <div>
-      <div>
-        <div>
-          <div>
-            <form
-              onSubmit={EventSubmit}
-              className=" grid  justify-center items-center content-center my-8"
-            >
-              <div>
-                <label htmlFor="name">Name</label>
-
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Name"
-                  class="input input-bordered input-primary w-full max-w-xs grid "
-                />
-              </div>
-
-              <div>
-                <label htmlFor="ratings">ratings</label>
-                <input
-                  type="text"
-                  name="ratings"
-                  required
-                  placeholder="Rating"
-                  class="input input-bordered input-primary w-full max-w-xs   grid"
-                />
-              </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">
-                    What You think about our products,give a small description?
-                  </span>
-                </label>
-                <textarea
-                  class="textarea textarea-bordered h-24"
-                  placeholder="Description"
-                  type="text"
-                  name="description"
-                ></textarea>
-              </div>
-
-              <div>
-                <label htmlFor="email">Your Email</label>
-                <input
-                  type="text"
-                  value={user?.email}
-                  readOnly={true}
-                  name="email"
-                  required
-                  class="input input-bordered input-primary w-full max-w-xs grid"
-                />
-              </div>
-              <button className="btn mt-4" type="submit" required>
-                Submit
-              </button>
-            </form>
-          </div>
+    <div className="text-black">
+      <h2 className="text-4xl text-white mb-8 font-extrabold text-center">
+        Add a Review
+      </h2>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-control w-full max-w-xs">
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="input input-bordered w-full max-w-xs"
+            {...register("name", {
+              required: {
+                value: true,
+                message: "Name is Required",
+              },
+            })}
+          />
+          <label className="label">
+            {errors.name?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.name.message}
+              </span>
+            )}
+          </label>
         </div>
-      </div>
-
-      {/* <Rating className="" onClick={handleRating} ratingValue={rating} /> */}
+        <div className="form-control w-full max-w-xs">
+          <input
+            type="file"
+            className="w-full max-w-xs dark:text-white"
+            {...register("image", {
+              required: {
+                value: true,
+                message: "Image is Required",
+              },
+            })}
+          />
+          <label className="label">
+            {errors.image?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.image.message}
+              </span>
+            )}
+          </label>
+        </div>
+        <div className="form-control w-full max-w-xs">
+          <input
+            type="text"
+            placeholder="Short Description"
+            className="input input-bordered w-full max-w-xs"
+            {...register("description", {
+              required: {
+                value: true,
+                message: "Description is Required",
+              },
+            })}
+          />
+          <label className="label">
+            {errors.description?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.description.message}
+              </span>
+            )}
+          </label>
+        </div>
+        <input
+          className="btn btn-primary w-full max-w-xs text-white"
+          type="submit"
+          value="Add Review"
+        />
+      </form>
     </div>
   );
 };

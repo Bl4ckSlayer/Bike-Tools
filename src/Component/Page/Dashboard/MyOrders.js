@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import DeleteOrder from "./DeleteOrder";
 import SingleOrder from "./SingleOrder";
 
 const MyOrders = () => {
   const [products, setProducts] = useState([]);
   const [user] = useAuthState(auth);
+
+  const [deleteOrder, setdeleteOrder] = useState(null);
   useEffect(() => {
     fetch(`http://localhost:5000/order?email=${user?.email}`)
       .then((res) => res.json())
@@ -19,8 +22,17 @@ const MyOrders = () => {
           product={product}
           products={products}
           setProducts={setProducts}
+          setdeleteOrder={setdeleteOrder}
         ></SingleOrder>
       ))}
+      {deleteOrder && (
+        <DeleteOrder
+          deleteOrder={deleteOrder}
+          setdeleteOrder={setdeleteOrder}
+          setProducts={setProducts}
+          products={products}
+        ></DeleteOrder>
+      )}
     </div>
   );
 };

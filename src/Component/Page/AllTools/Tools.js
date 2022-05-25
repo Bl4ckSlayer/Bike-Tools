@@ -14,7 +14,7 @@ const Tools = (props) => {
   const { _id } = props.tool;
   console.log(_id);
 
-  const handleDelete = (_id) => {
+  const handleDelete = () => {
     console.log("deleted");
     const url = `http://localhost:5000/service?id=${_id}`;
     fetch(url, {
@@ -35,7 +35,7 @@ const Tools = (props) => {
   return (
     <div className="m-12">
       {/* delete  */}
-      <div>
+      {/* <div>
         <input type="checkbox" id="my-modal-d" class="modal-toggle" />
         <div class="modal">
           <div class="modal-box relative">
@@ -65,7 +65,7 @@ const Tools = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="card lg:max-w-lg bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title">{tool.name}</h2>
@@ -96,12 +96,22 @@ const Tools = (props) => {
                 >
                   Update
                 </button>
-                <label
+                <button
+                  // for="my-modal-3"
+                  // onClick={() => {
+                  //   setModalShow(true);
+                  // }}
+                  onClick={handleDelete}
+                  class="btn btn-secondary text-white text-center"
+                >
+                  DELETE
+                </button>
+                {/* <label
                   for="my-modal-d"
                   className="btn btn-secondary  text-white text-center"
                 >
                   Delete Item
-                </label>
+                </label> */}
               </>
             )}
           </div>
