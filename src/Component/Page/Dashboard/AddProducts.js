@@ -63,11 +63,14 @@ const AddProducts = () => {
       });
   };
   return (
-    <div className="text-black    mt-16 ml-20">
+    <div className="text-black    mt-16 ">
       <h2 className="text-4xl mb-8 font-extrabold text-center grid ">
         Add a New Product
       </h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="grid items-center justify-center"
+      >
         <div className="form-control w-full max-w-xs">
           <input
             type="text"
@@ -89,6 +92,7 @@ const AddProducts = () => {
           </label>
         </div>
         <div className="form-control w-full max-w-xs">
+          <label className="text-secondary">Image</label>
           <input
             type="file"
             className="w-full max-w-xs dark:text-white"

@@ -73,17 +73,17 @@ const ManageSingleOrders = (props) => {
 
   return (
     <div>
-      <div class="card w-96 bg-base-100 shadow-xl">
+      <div class="card w-80 h-full bg-base-100 shadow-xl">
         <figure class="px-10 pt-10">
           <img src={image} alt="Shoes" class="rounded-xl" />
         </figure>
         <div class="card-body items-center text-center">
           <h2 class="card-title"> Name: {name}</h2>
           <p>Address:{address}</p>
-          <h2 class="card-title"> Name: {email}</h2>
-          <h2 class="card-title"> Name: {phone}</h2>
-          <h2 class="card-title"> Name: {totalPrice}</h2>
-          <h2 class="card-title"> Name: {quantity}</h2>
+          <h2 class="card-title"> Email: {email}</h2>
+          <h2 class="card-title"> Phone: {phone}</h2>
+          <h2 class="card-title"> Total: {totalPrice}</h2>
+          <h2 class="card-title"> Quantity: {quantity}</h2>
 
           {!paid ? (
             <h4 className="card__title">

@@ -27,8 +27,11 @@ const AddAdmin = () => {
             <tr>
               <th></th>
               <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Email</th>
+              <th>Number</th>
+              <th>Address</th>
+              <th>Update</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>

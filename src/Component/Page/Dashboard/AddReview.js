@@ -63,11 +63,14 @@ const AddReview = () => {
   }
 
   return (
-    <div className="text-black  ml-12 mt-20">
-      <h2 className="text-4xl text-white mb-8 font-extrabold text-center">
+    <div className="text-black grid text-center   mt-20">
+      <h2 className="text-4xl  mb-8 font-extrabold text-center">
         Add a Review
       </h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className=" text-center grid justify-center items-center"
+      >
         <div className="form-control w-full max-w-xs">
           <input
             type="text"

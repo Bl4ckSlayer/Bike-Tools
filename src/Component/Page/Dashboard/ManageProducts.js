@@ -10,6 +10,9 @@ const ManageProducts = () => {
 
   return (
     <div>
+      <h2 className="text-4xl mb-8 font-extrabold text-center grid ">
+        Manage Order
+      </h2>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {findTools.length === 0 && <Loading></Loading>}
         {findTools.map((tool) => (

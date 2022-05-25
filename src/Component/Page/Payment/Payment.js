@@ -24,15 +24,18 @@ const Payment = () => {
   }
   console.log(products);
   return (
-    <div className=" justify-center content-center text-center items-center">
-      <div class="card w-50 bg-base-100 shadow-xl max-w-md my-12">
+    <div className=" grid  text-center justify-center">
+      <h2 class="text-3xl font-bold text-secondary">Payment </h2>
+      <div class="card  bg-base-100 shadow-xl max-w-md my-12">
+        <figure class="px-10 pt-10">
+          <img src={products?.image} alt="Shoes" class="rounded-xl" />
+        </figure>
         <div class="card-body">
-          <h2 class="card-title">{products?.name}</h2>
-          <p>{products?.phone}</p>
-          <p>{products?.totalPrice}</p>
-          {/* <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
-          </div> */}
+          <h2 class="card-title">Name :{products?.name}</h2>
+          <h2 class="card-title">Phone : {products?.phone}</h2>
+          <h2 class="card-title">Price To Pay :{products?.totalPrice}</h2>
+          <h2 class="card-title">Address :{products?.address}</h2>
+          <h2 class="card-title">Price: {products?.totalPrice}</h2>
         </div>
       </div>
       <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">

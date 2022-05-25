@@ -2,7 +2,7 @@ import React from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 const User = ({ user, refetch, index }) => {
-  const { email, role, phone, name } = user;
+  const { email, role, phone, name, address } = user;
   const makeAdmin = () => {
     fetch(`http://localhost:5000/user/admin/${email}`, {
       method: "PUT",
@@ -46,9 +46,11 @@ const User = ({ user, refetch, index }) => {
   return (
     <tr>
       <th>{index + 1}</th>
-      <td>{name}</td>
+      <td>{user?.name}</td>
       <td>{email}</td>
+
       <td>{phone}</td>
+      <td>{user?.address}</td>
       <td>
         {role !== "admin" && (
           <button onClick={makeAdmin} class="btn btn-xs">

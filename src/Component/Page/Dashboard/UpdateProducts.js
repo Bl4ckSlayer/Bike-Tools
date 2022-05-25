@@ -64,7 +64,7 @@ const UpdateProducts = () => {
 
   return (
     <div>
-      <div className=" flex text-center justify-center items-center ">
+      <div className=" grid  justify-center items-center ">
         <div class="card  w-80 h-full bg-base-100  ">
           <figure class="px-4 pt-6">
             <img src={product[0]?.image} className="h-4/6" alt="Movie" />

@@ -56,7 +56,7 @@ const MyProfile = () => {
 
   return (
     <div>
-      <h1 className="card-title">My Profile</h1>
+      <h2 className="text-3xl  mb-8 font-bold text-center">My Profile</h2>
       <div class="card lg:card-side bg-base-100 shadow-xl">
         <figure>
           <img

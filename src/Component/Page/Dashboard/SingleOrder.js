@@ -10,7 +10,6 @@ const SingleOrder = (props) => {
   const {
     name,
     description,
-    img,
     paid,
     price,
     productCode,
@@ -19,39 +18,25 @@ const SingleOrder = (props) => {
     status,
     totalPrice,
     transactionId,
+    image,
+    address,
+    email,
+    phone,
   } = props.product;
 
-  const handleBooking = () => {
-    console.log("deleted");
-    const url = `http://localhost:5000/order?id=${_id}`;
-    fetch(url, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount > 0) {
-          const remaining = products.filter((item) => item._id !== _id);
-          //   toast.success("Order successfully deleted");
-
-          setProducts(remaining);
-        }
-      });
-  };
   return (
     <div className="p-5">
-      <div className="card border-0">
-        <img src={img} class="card__image" alt="" />
-        <div class="card__overlay">
-          <div class="card__header">
-            <div class="card__header-text fs-1">
-              <h3 class="card__title">{name}</h3>
-            </div>
-          </div>
-          <h4 className="card__description pb-2 fs-5">ddd {description}</h4>
-
-          <h5 className="card__description fs-5 pb-2">Price: ${totalPrice}</h5>
-          <h5 className="card__description">Quantity: {quantity}</h5>
+      <div className="card w-80 h-full bg-base-100 shadow-xl">
+        <figure class="px-10 pt-10">
+          <img src={image} alt="Shoes" class="rounded-xl h-3/4" />
+        </figure>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title"> Name: {name}</h2>
+          <p>Address:{address}</p>
+          <h2 class="card-title"> Email: {email}</h2>
+          <h2 class="card-title"> Phone: {phone}</h2>
+          <h2 class="card-title"> Total: {totalPrice}</h2>
+          <h2 class="card-title"> Quantity: {quantity}</h2>
 
           {!paid ? (
             <button
@@ -65,7 +50,7 @@ const SingleOrder = (props) => {
           ) : (
             <div>
               <h4 className="card__title">
-                Payment: <span className="text-success">Paid</span>
+                Payment Status: <span className="text-success">Paid</span>
               </h4>
               <p>
                 Transaction ID :
@@ -79,17 +64,15 @@ const SingleOrder = (props) => {
             </h4>
           ) : (
             <h4 className="card__title">
-              Status: <span className="text-success">{status}</span>
+              Order Status: <span className="text-success">{status}</span>
             </h4>
           )}
 
-          {totalPrice}
-          <h1>{quantity}</h1>
           {!paid && (
             <label
               onClick={() => setdeleteOrder(props.product)}
               for="my-modal-6"
-              class="btn btn-xs btn-error"
+              class="btn  btn-error"
             >
               Delete
             </label>
