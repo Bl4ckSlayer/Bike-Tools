@@ -25,7 +25,7 @@ const AllTools = () => {
         </h1>
       </div>
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {findTools.length === 0 && <Loading></Loading>}
         {findTools.slice(0, 3).map((tool) => (
           <Tools key={tool._id} tool={tool} fromHome={fromHome}></Tools>

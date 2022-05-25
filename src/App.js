@@ -21,6 +21,8 @@ import UpdateProducts from "./Component/Page/Dashboard/UpdateProducts";
 import Payment from "./Component/Page/Payment/Payment";
 import AllRatings from "./Component/Page/AllRatings/AllRatings";
 import Footer from "./Component/Page/Shared/Footer/Footer";
+import Blogs from "./Component/Page/Portfolio/Blogs";
+import Portfolio from "./Component/Page/Portfolio/Portfolio";
 function App() {
   return (
     <div>
@@ -94,6 +96,8 @@ function App() {
           }
         ></Route>
         <Route path="login" element={<Login></Login>}></Route>
+        <Route path="blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="portfolio" element={<Portfolio></Portfolio>}></Route>
         <Route path="signup" element={<Signup></Signup>}></Route>
       </Routes>
       <Footer></Footer>
