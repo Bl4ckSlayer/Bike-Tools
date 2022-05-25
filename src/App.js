@@ -23,6 +23,7 @@ import AllRatings from "./Component/Page/AllRatings/AllRatings";
 import Footer from "./Component/Page/Shared/Footer/Footer";
 import Blogs from "./Component/Page/Portfolio/Blogs";
 import Portfolio from "./Component/Page/Portfolio/Portfolio";
+import ErrorRoute from "./Component/Page/Shared/ErrorRoute/ErrorRoute";
 function App() {
   return (
     <div>
@@ -99,6 +100,7 @@ function App() {
         <Route path="blogs" element={<Blogs></Blogs>}></Route>
         <Route path="portfolio" element={<Portfolio></Portfolio>}></Route>
         <Route path="signup" element={<Signup></Signup>}></Route>
+        <Route path="/*" element={<ErrorRoute></ErrorRoute>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>

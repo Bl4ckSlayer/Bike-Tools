@@ -73,13 +73,15 @@ const AddReview = () => {
       >
         <div className="form-control w-full max-w-xs">
           <input
-            type="text"
-            placeholder="Your Name"
+            type="number"
+            min={1}
+            max={5}
+            placeholder="Rate Our Product 1 To 5 scale "
             className="input input-bordered w-full max-w-xs"
             {...register("name", {
               required: {
                 value: true,
-                message: "Name is Required",
+                message: "Rating is Required",
               },
             })}
           />

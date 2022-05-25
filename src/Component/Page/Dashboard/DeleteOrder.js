@@ -42,17 +42,9 @@ const DeleteOrder = ({
             Are you sure you want to delete ?
           </h3>
           <h4>
-            <b>Name:</b>
-            {name}
+            <b>{name}</b>
           </h4>
-          <p class="py-4">
-            <b>Details:</b>
-            {description}
-          </p>
-          <p class="py-4">
-            <b>Quantity:</b>
-            {quantity}
-          </p>
+
           <p class="py-4">
             <b>Price:$</b>
             {price}

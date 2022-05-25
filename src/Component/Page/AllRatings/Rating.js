@@ -12,7 +12,7 @@ const Rating = ({ tool }) => {
       </div>
       <div className="card-body mx-auto text-center">
         <p>{description}</p>
-        <h2 className="card-title mx-auto">{name}</h2>
+        <h2 className="card-title mx-auto"> Ratings : {name} Star</h2>
         <div className="rating mx-auto">
           <input
             type="radio"
