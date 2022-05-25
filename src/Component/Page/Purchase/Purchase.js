@@ -21,22 +21,26 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => setTool(data));
   }, []);
-  const { _id, name, quantity, description, price, image } = tool;
-
+  const { _id, name, quantity, description, price, image, minOrderQuantity } =
+    tool;
+  console.log(tool);
   const onSubmit = async (data) => {
     console.log(typeof data.quantity);
 
     const prevQuantity = parseInt(quantity);
     const newQuantity = parseInt(data.quantity);
-    if (newQuantity < 50) {
-      return toast.error("minMum quantity is 50");
-    }
+    const minQuantity = parseInt(data.minQuantity);
+    console.log(minQuantity);
     if (data.quantity === "" || data.quantity === undefined) {
       return toast.error("Empty Quantity");
     }
 
     if (newQuantity > prevQuantity) {
       return toast.error("Quantity Excedded");
+    }
+
+    if (newQuantity < minQuantity) {
+      return toast.error("minimum quantity is required");
     }
 
     const product = {
@@ -75,7 +79,7 @@ const Purchase = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast.success(`${name} have been updated`);
+        toast.success(`${name} has been ordered Please check my order`);
         fetch(`http://localhost:5000/purchase/${id}`)
           .then((res) => res.json())
           .then((data) => setTool(data));
@@ -192,14 +196,28 @@ const Purchase = () => {
                   </div>
                   <div class="form-control">
                     <label class="label">
-                      <span class="label-text">Available Products</span>
+                      <span class="label-text">Minimum Quantity</span>
+                    </label>
+                    <div className="input-group w-75 mx-auto">
+                      <input
+                        type="text"
+                        placeholder="Product Quantity"
+                        value={minOrderQuantity}
+                        className="input input-bordered text-lg font-semibold w-full max-w-xs"
+                        {...register("minQuantity")}
+                      />
+                    </div>
+                  </div>
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Amount</span>
                     </label>
                     <div className="input-group w-75 mx-auto">
                       <input
                         type="number"
                         placeholder="Product Quantity"
                         // value={}
-                        min={10}
+                        min={1}
                         className="input input-bordered w-full max-w-xs"
                         {...register("quantity")}
                       />

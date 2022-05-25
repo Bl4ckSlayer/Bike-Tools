@@ -20,6 +20,7 @@ import ManageProducts from "./Component/Page/Dashboard/ManageProducts";
 import UpdateProducts from "./Component/Page/Dashboard/UpdateProducts";
 import Payment from "./Component/Page/Payment/Payment";
 import AllRatings from "./Component/Page/AllRatings/AllRatings";
+import Footer from "./Component/Page/Shared/Footer/Footer";
 function App() {
   return (
     <div>
@@ -95,6 +96,7 @@ function App() {
         <Route path="login" element={<Login></Login>}></Route>
         <Route path="signup" element={<Signup></Signup>}></Route>
       </Routes>
+      <Footer></Footer>
       <ToastContainer></ToastContainer>
     </div>
   );

@@ -9,7 +9,7 @@ const AllTools = () => {
   const navigate = useNavigate();
   let fromHome = 1;
   const goToManageInventory = () => {
-    navigate("/manageinventory");
+    navigate("/manageTools");
   };
   return (
     <div className="container">
@@ -34,9 +34,9 @@ const AllTools = () => {
       <div className="text-center mb-5">
         <button
           onClick={() => goToManageInventory()}
-          className="button-51 mt-5"
+          className="btn btn-primary"
         >
-          Manage Inventory
+          All Tools
         </button>
       </div>
     </div>
