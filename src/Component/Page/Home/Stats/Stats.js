@@ -4,7 +4,7 @@ const Stats = () => {
   return (
     <div className="bg-neutral  text-center">
       <h1 className="text-accent  text-3xl font-bold">
-        What people Say About Us
+        What We share in Market Place
       </h1>
       <div class="m-10 w-3/4 stats stats-vertical lg:stats-horizontal stats shadow ">
         <div class="stat">
