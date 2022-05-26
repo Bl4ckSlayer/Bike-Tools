@@ -27,16 +27,16 @@ const SingleOrder = (props) => {
   return (
     <div className="p-5">
       <div className="card w-80 h-full bg-base-100 shadow-xl">
-        <figure class="px-10 pt-10">
-          <img src={image} alt="Shoes" class="rounded-xl h-3/4" />
+        <figure className="px-10 pt-10">
+          <img src={image} alt="Shoes" className="rounded-xl h-3/4" />
         </figure>
-        <div class="card-body items-center text-center">
-          <h2 class="card-title"> Name: {name}</h2>
+        <div className="card-body items-center text-center">
+          <h2 className="card-title"> Name: {name}</h2>
           <p>Address:{address}</p>
-          <h2 class="card-title"> Email: {email}</h2>
-          <h2 class="card-title"> Phone: {phone}</h2>
-          <h2 class="card-title"> Total: {totalPrice}</h2>
-          <h2 class="card-title"> Quantity: {quantity}</h2>
+          <h2 className="card-title"> Email: {email}</h2>
+          <h2 className="card-title"> Phone: {phone}</h2>
+          <h2 className="card-title"> Total: {totalPrice}</h2>
+          <h2 className="card-title"> Quantity: {quantity}</h2>
           {paid && status === "Pending" ? (
             <h4 className="card__title">
               Order Status: <span className="text-error">{status}</span>
@@ -71,7 +71,7 @@ const SingleOrder = (props) => {
             <label
               onClick={() => setdeleteOrder(props.product)}
               for="my-modal-6"
-              class="btn  btn-error"
+              className="btn  btn-error"
             >
               Delete
             </label>

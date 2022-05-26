@@ -12,14 +12,17 @@ const CheckoutForm = ({ products }) => {
   const [transactionId, setTransactionId] = useState("");
   const { totalPrice, userName, email, _id } = products;
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify({ totalPrice }),
-    })
+    fetch(
+      "https://secure-everglades-11152.herokuapp.com/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({ totalPrice }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {
@@ -78,7 +81,7 @@ const CheckoutForm = ({ products }) => {
         transactionId: paymentIntent.id,
       };
 
-      fetch(`http://localhost:5000/order/${_id}`, {
+      fetch(`https://secure-everglades-11152.herokuapp.com/order/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

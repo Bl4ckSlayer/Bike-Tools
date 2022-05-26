@@ -4,7 +4,7 @@ const FindTools = () => {
   const [findTools, setFindTools] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/service")
+    fetch("https://secure-everglades-11152.herokuapp.com/service")
       .then((res) => res.json())
       .then((data) => setFindTools(data));
   }, []);

@@ -4,7 +4,7 @@ import Rating from "../../AllRatings/Rating";
 import Loading from "../../Shared/Loading/Loading";
 
 const HomeRating = () => {
-  const url = `http://localhost:5000/rating`;
+  const url = `https://secure-everglades-11152.herokuapp.com/rating`;
   const { data: review, isLoading } = useQuery("rating", () =>
     fetch(url, {
       method: "GET",

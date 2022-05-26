@@ -14,7 +14,9 @@ const AddReview = () => {
   } = useForm();
 
   const { isLoading } = useQuery("reviews", () =>
-    fetch("http://localhost:5000/rating").then((res) => res.json())
+    fetch("https://secure-everglades-11152.herokuapp.com/rating").then((res) =>
+      res.json()
+    )
   );
 
   const imageStorageKey = "4e369d9a8ccc08de599f3e949fd61ac0";
@@ -37,7 +39,7 @@ const AddReview = () => {
             description: data.description,
           };
           // send to your database
-          fetch("http://localhost:5000/rating", {
+          fetch("https://secure-everglades-11152.herokuapp.com/rating", {
             method: "POST",
             headers: {
               "content-type": "application/json",

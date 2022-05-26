@@ -7,7 +7,7 @@ const ManageOrders = () => {
   const [deleteOrder, setdeleteOrder] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/order", {
+    fetch("https://secure-everglades-11152.herokuapp.com/order", {
       method: "GET",
       headers: {
         "content-type": "application/json",

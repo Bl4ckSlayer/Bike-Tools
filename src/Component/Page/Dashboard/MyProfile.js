@@ -16,19 +16,22 @@ const MyProfile = () => {
     isLoading,
     refetch,
   } = useQuery("myUsers", () =>
-    fetch(`http://localhost:5000/user?email=${user?.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => res.json())
+    fetch(
+      `https://secure-everglades-11152.herokuapp.com/user?email=${user?.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    ).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
   }
 
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/user?email=${user?.email}`, {
+  //   fetch(`https://secure-everglades-11152.herokuapp.com/user?email=${user?.email}`, {
   //     method: "GET",
   //     headers: {
   //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -57,7 +60,7 @@ const MyProfile = () => {
   return (
     <div>
       <h2 className="text-3xl  mb-8 font-bold text-center">My Profile</h2>
-      <div class="card lg:card-side bg-base-100 shadow-xl">
+      <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure>
           <img
             src="https://i.ibb.co/VNDY79z/9e790bb99536fa746850cd1b2d7c954e.jpg"
@@ -66,19 +69,19 @@ const MyProfile = () => {
             border="0"
           />
         </figure>
-        <div class="card-body">
-          <h2 class="card-title">Name : {myUsers[0]?.name}</h2>
-          <h2 class="card-title">Email : {myUsers[0]?.email}</h2>
-          <h2 class="card-title">Address : {myUsers[0]?.address}</h2>
-          <h2 class="card-title">Phone : {myUsers[0]?.phone}</h2>
+        <div className="card-body">
+          <h2 className="card-title">Name : {myUsers[0]?.name}</h2>
+          <h2 className="card-title">Email : {myUsers[0]?.email}</h2>
+          <h2 className="card-title">Address : {myUsers[0]?.address}</h2>
+          <h2 className="card-title">Phone : {myUsers[0]?.phone}</h2>
 
-          <div class="card-actions justify-end">
+          <div className="card-actions justify-end">
             <label
               for="booking-modal"
               onClick={() => {
                 setTreatment(myUsers[0]);
               }}
-              class="btn modal-button btn-secondary text-white text-center"
+              className="btn modal-button btn-secondary text-white text-center"
             >
               Update Profile
             </label>

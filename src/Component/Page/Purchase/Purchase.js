@@ -17,7 +17,7 @@ const Purchase = () => {
   } = useForm();
   const imageStorageKey = "4e369d9a8ccc08de599f3e949fd61ac0";
   useEffect(() => {
-    fetch(`http://localhost:5000/purchase/${id}`)
+    fetch(`https://secure-everglades-11152.herokuapp.com/purchase/${id}`)
       .then((res) => res.json())
       .then((data) => setTool(data));
   }, []);
@@ -61,7 +61,7 @@ const Purchase = () => {
     const oldProduct = {
       quantity: parseInt(prevQuantity - newQuantity),
     };
-    fetch(`http://localhost:5000/order`, {
+    fetch(`https://secure-everglades-11152.herokuapp.com/order`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -69,7 +69,7 @@ const Purchase = () => {
       },
       body: JSON.stringify(product),
     });
-    fetch(`http://localhost:5000/service/${id}`, {
+    fetch(`https://secure-everglades-11152.herokuapp.com/service/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -80,7 +80,7 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => {
         toast.success(`${name} has been ordered Please check my order`);
-        fetch(`http://localhost:5000/purchase/${id}`)
+        fetch(`https://secure-everglades-11152.herokuapp.com/purchase/${id}`)
           .then((res) => res.json())
           .then((data) => setTool(data));
       });
@@ -90,14 +90,14 @@ const Purchase = () => {
     <div>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div class="hero min-h-screen bg-base-200">
-            <div class="hero-content flex-col lg:flex-row-reverse">
+          <div className="hero min-h-screen bg-base-200">
+            <div className="hero-content flex-col lg:flex-row-reverse">
               <img src={image} alt="" className="w-1/4" />
-              <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <div class="card-body">
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Name</span>
+              <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card-body">
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Name</span>
                     </label>
                     <div className="input-group w-75 mx-auto">
                       <input
@@ -110,9 +110,9 @@ const Purchase = () => {
                       />
                     </div>
                   </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Email</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Email</span>
                     </label>
                     <input
                       type="text"
@@ -123,9 +123,9 @@ const Purchase = () => {
                       {...register("email")}
                     />
                   </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Number</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Number</span>
                     </label>
                     <div className="input-group w-75 mx-auto">
                       <input
@@ -136,9 +136,9 @@ const Purchase = () => {
                       />
                     </div>
                   </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Address</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Address</span>
                     </label>
                     <div className="input-group w-75 mx-auto">
                       <textarea
@@ -149,9 +149,9 @@ const Purchase = () => {
                       />
                     </div>
                   </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Product Name</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Product Name</span>
                     </label>
                     <div className="input-group w-75 mx-auto">
                       <input
@@ -164,9 +164,9 @@ const Purchase = () => {
                       />
                     </div>
                   </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Price Per Unit</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Price Per Unit</span>
                     </label>
                     <div className="input-group w-75 mx-auto">
                       <input
@@ -179,9 +179,9 @@ const Purchase = () => {
                       />
                     </div>
                   </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Available Products</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Available Products</span>
                     </label>
                     <div className="input-group w-75 mx-auto">
                       <input
@@ -193,9 +193,9 @@ const Purchase = () => {
                       />
                     </div>
                   </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Minimum Quantity</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Minimum Quantity</span>
                     </label>
                     <div className="input-group w-75 mx-auto">
                       <input
@@ -207,9 +207,9 @@ const Purchase = () => {
                       />
                     </div>
                   </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Amount</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Amount</span>
                     </label>
                     <div className="input-group w-75 mx-auto">
                       <input

@@ -14,7 +14,9 @@ const AddProducts = () => {
   } = useForm();
 
   const { isLoading } = useQuery("service", () =>
-    fetch("http://localhost:5000/service").then((res) => res.json())
+    fetch("https://secure-everglades-11152.herokuapp.com/service").then((res) =>
+      res.json()
+    )
   );
   const [findTools, setFindTools] = FindTools();
   const [user] = useAuthState(auth);
@@ -42,7 +44,7 @@ const AddProducts = () => {
             price: data.price,
           };
 
-          fetch("http://localhost:5000/service", {
+          fetch("https://secure-everglades-11152.herokuapp.com/service", {
             method: "POST",
             headers: {
               "content-type": "application/json",

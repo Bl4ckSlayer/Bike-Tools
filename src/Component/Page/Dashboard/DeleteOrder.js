@@ -12,7 +12,7 @@ const DeleteOrder = ({
   const { _id, name, description, price, quantity } = deleteOrder;
 
   const handleDelete = () => {
-    const url = `http://localhost:5000/order?id=${_id}`;
+    const url = `https://secure-everglades-11152.herokuapp.com/order?id=${_id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -35,28 +35,28 @@ const DeleteOrder = ({
 
   return (
     <div>
-      <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-      <div class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-          <h3 class="font-bold text-lg text-red-500">
+      <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+      <div className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg text-red-500">
             Are you sure you want to delete ?
           </h3>
           <h4>
             <b>{name}</b>
           </h4>
 
-          <p class="py-4">
+          <p className="py-4">
             <b>Price:$</b>
             {price}
           </p>
-          <div class="my-modal-6">
+          <div className="my-modal-6">
             <button
               onClick={() => handleDelete()}
-              class="btn btn-xs btn-error mr-6"
+              className="btn btn-xs btn-error mr-6"
             >
               Delete
             </button>
-            <label for="my-modal-6" class="btn btn-xs">
+            <label for="my-modal-6" className="btn btn-xs">
               Cancel
             </label>
           </div>

@@ -17,18 +17,20 @@ const Tools = (props) => {
 
   return (
     <div className="m-12">
-      <div class="card w-80 h-full bg-base-100 shadow-xl">
-        <figure class="px-4 pt-6">
+      <div className="card w-80 h-full bg-base-100 shadow-xl">
+        <figure className="px-4 pt-6">
           <img src={image} className="h-4/6" alt="Movie" />
         </figure>
-        <div class="card-body">
-          <h2 class="card-title">Product name: {name}</h2>
+        <div className="card-body">
+          <h2 className="card-title">Product name: {name}</h2>
 
-          <h2 class="card-title">Min Order Quantity : {minOrderQuantity}</h2>
-          <h2 class="card-title">Quantity : {quantity}</h2>
-          <h2 class="card-title">Price : {price}</h2>
+          <h2 className="card-title">
+            Min Order Quantity : {minOrderQuantity}
+          </h2>
+          <h2 className="card-title">Quantity : {quantity}</h2>
+          <h2 className="card-title">Price : {price}</h2>
           <p>Description: {description} </p>
-          <div class="card-actions justify-end">
+          <div className="card-actions justify-end">
             {fromHome !== undefined ? (
               <>
                 {!quantity ? (
@@ -64,7 +66,7 @@ const Tools = (props) => {
                 <label
                   onClick={() => setDeleteProduct(props.tool)}
                   for="my-modal-7"
-                  class="btn  btn-secondary  text-white text-center"
+                  className="btn  btn-secondary  text-white text-center"
                 >
                   Delete
                 </label>

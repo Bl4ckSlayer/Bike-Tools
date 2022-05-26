@@ -4,7 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 const User = ({ user, refetch, index }) => {
   const { email, role, phone, name, address } = user;
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://secure-everglades-11152.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -24,12 +24,15 @@ const User = ({ user, refetch, index }) => {
       });
   };
   const removeAdmin = () => {
-    fetch(`http://localhost:5000/user/removeAdmin/${email}`, {
-      method: "PUT",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://secure-everglades-11152.herokuapp.com/user/removeAdmin/${email}`,
+      {
+        method: "PUT",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 403) {
           toast.error(`Failed to Remove ${email} from admin`);
@@ -53,14 +56,14 @@ const User = ({ user, refetch, index }) => {
       <td>{user?.address}</td>
       <td>
         {role !== "admin" && (
-          <button onClick={makeAdmin} class="btn btn-xs">
+          <button onClick={makeAdmin} className="btn btn-xs">
             Make Admin
           </button>
         )}
       </td>
       <td>
         {role === "admin" && (
-          <button onClick={() => removeAdmin()} class="btn btn-xs">
+          <button onClick={() => removeAdmin()} className="btn btn-xs">
             Remove Admin
           </button>
         )}

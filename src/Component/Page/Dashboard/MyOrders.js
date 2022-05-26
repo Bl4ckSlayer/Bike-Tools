@@ -10,13 +10,16 @@ const MyOrders = () => {
 
   const [deleteOrder, setdeleteOrder] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:5000/order?email=${user?.email}`, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://secure-everglades-11152.herokuapp.com/order?email=${user?.email}`,
+      {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [user]);

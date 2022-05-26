@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import Loading from "../Shared/Loading/Loading";
 import Rating from "./Rating";
 const AllRatings = () => {
-  const url = `http://localhost:5000/rating`;
+  const url = `https://secure-everglades-11152.herokuapp.com/rating`;
   const { data: rating, isLoading } = useQuery("rating", () =>
     fetch(url, {
       method: "GET",

@@ -15,7 +15,7 @@ const UpdateProducts = () => {
   const [product, setProduct] = useState([]);
   // console.log(product);
   useEffect(() => {
-    fetch(`http://localhost:5000/service?id=${id}`)
+    fetch(`https://secure-everglades-11152.herokuapp.com/service?id=${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
@@ -49,17 +49,22 @@ const UpdateProducts = () => {
             image: image,
           };
 
-          fetch(`http://localhost:5000/service?id=${id}`, {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(updatedProduct),
-          })
+          fetch(
+            `https://secure-everglades-11152.herokuapp.com/service?id=${id}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(updatedProduct),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
-              fetch(`http://localhost:5000/service?id=${id}`)
+              fetch(
+                `https://secure-everglades-11152.herokuapp.com/service?id=${id}`
+              )
                 .then((res) => res.json())
                 .then((data) => setProduct(data));
               toast.success(`${product[0]?.name}have been updated`);
@@ -72,26 +77,26 @@ const UpdateProducts = () => {
   return (
     <div>
       <div className=" grid  justify-center items-center ">
-        <div class="card  w-80 h-full bg-base-100  ">
-          <figure class="px-4 pt-6">
+        <div className="card  w-80 h-full bg-base-100  ">
+          <figure className="px-4 pt-6">
             <img src={product[0]?.image} className="h-4/6 " alt="Movie" />
           </figure>
-          <div class="card-body">
-            <h2 class="card-title">Product name: {product[0]?.name}</h2>
+          <div className="card-body">
+            <h2 className="card-title">Product name: {product[0]?.name}</h2>
 
-            <h2 class="card-title">
+            <h2 className="card-title">
               Min Order Quantity : {product[0]?.minOrderQuantity}
             </h2>
-            <h2 class="card-title">Quantity : {product[0]?.quantity}</h2>
-            <h2 class="card-title">Price : {product[0]?.price}</h2>
+            <h2 className="card-title">Quantity : {product[0]?.quantity}</h2>
+            <h2 className="card-title">Price : {product[0]?.price}</h2>
             <p>Description: {product[0]?.description} </p>
           </div>
         </div>
       </div>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div class="hero min-h-screen ">
-            <div class="hero-content flex-col lg:flex-row-reverse">
+          <div className="hero min-h-screen ">
+            <div className="hero-content flex-col lg:flex-row-reverse">
               <figure>
                 <img
                   src={product[0]?.image}
@@ -101,11 +106,11 @@ const UpdateProducts = () => {
                 />
               </figure>
 
-              <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <div class="card-body">
+              <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card-body">
                   <div className="form-control">
-                    <label class="label">
-                      <span class="label-text">Price</span>
+                    <label className="label">
+                      <span className="label-text">Price</span>
                     </label>
                     <input
                       type="number"
@@ -126,9 +131,9 @@ const UpdateProducts = () => {
                       )}
                     </label>
                   </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Quantity</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Quantity</span>
                     </label>
                     <input
                       type="number"
@@ -151,8 +156,8 @@ const UpdateProducts = () => {
                     </label>
                   </div>
                   <div className="form-control w-full max-w-xs">
-                    <label class="label">
-                      <span class="label-text">Minimum Quantity</span>
+                    <label className="label">
+                      <span className="label-text">Minimum Quantity</span>
                     </label>
                     <input
                       type="number"
@@ -173,9 +178,9 @@ const UpdateProducts = () => {
                       )}
                     </label>
                   </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Image</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Image</span>
                     </label>
                     <div className="input-group w-75 mx-auto">
                       <input
@@ -196,7 +201,7 @@ const UpdateProducts = () => {
                   <input
                     className="btn  btn-primary  mx-auto mt-4"
                     type="submit"
-                    value="Order Now !"
+                    value="Update"
                   />
                 </div>
               </div>

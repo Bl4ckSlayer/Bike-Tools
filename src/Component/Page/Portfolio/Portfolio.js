@@ -43,19 +43,21 @@ const Portfolio = () => {
           Personal Information
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 px-20 mb-16">
-          <div class="card w-96 bg-neutral text-white">
-            <div class="card-body items-center text-center">
-              <h2 class="card-title">Phone: +880 17781 20603</h2>
-              <h2 class="card-title">Address:36 Chandanpura, Chittagong</h2>
-              <h4 class="">
+          <div className="card w-96 bg-neutral text-white">
+            <div className="card-body items-center text-center">
+              <h2 className="card-title">Phone: +880 17781 20603</h2>
+              <h2 className="card-title">Address:36 Chandanpura, Chittagong</h2>
+              <h4 className="">
                 LinkedIn: https://www.linkedin.com/in/amirul-islam-94a980178/
               </h4>
             </div>
           </div>
-          <div class="card w-96 bg-neutral text-white">
-            <div class="card-body items-center text-center">
-              <h2 class="card-title">GitHub: https://github.com/Bl4ckSlayer</h2>
-              <h4 class="">Email: amirulislamtajbid@gmail.com</h4>
+          <div className="card w-96 bg-neutral text-white">
+            <div className="card-body items-center text-center">
+              <h2 className="card-title">
+                GitHub: https://github.com/Bl4ckSlayer
+              </h2>
+              <h4 className="">Email: amirulislamtajbid@gmail.com</h4>
             </div>
           </div>
         </div>
@@ -63,17 +65,17 @@ const Portfolio = () => {
       <div>
         <h2 className="text-center text-4xl font-semibold mb-16">Skills</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 px-20 mb-16">
-          <div class="card w-96 bg-neutral text-white">
-            <div class="card-body items-center text-center">
-              <h4 class="">
+          <div className="card w-96 bg-neutral text-white">
+            <div className="card-body items-center text-center">
+              <h4 className="">
                 HTML5, Bootstrap5,Tailwind CSS, Firebase(Authentication),React
                 Router
               </h4>
             </div>
           </div>
-          <div class="card w-96 bg-neutral text-white">
-            <div class="card-body items-center text-center">
-              <h4 class="">
+          <div className="card w-96 bg-neutral text-white">
+            <div className="card-body items-center text-center">
+              <h4 className="">
                 CSS3, JavaScript(ES6), React JS, Context API, PHP, MySQL,
                 MongoDB
               </h4>

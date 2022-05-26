@@ -23,7 +23,7 @@ const ManageSingleOrders = (props) => {
       status: "Shipped",
     };
     console.log(updatedProduct.quantity);
-    fetch(`http://localhost:5000/order?id=${_id}`, {
+    fetch(`https://secure-everglades-11152.herokuapp.com/order?id=${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -43,7 +43,7 @@ const ManageSingleOrders = (props) => {
         setOrders(orders);
       });
 
-    fetch(`http://localhost:5000/order`, {
+    fetch(`https://secure-everglades-11152.herokuapp.com/order`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -54,7 +54,7 @@ const ManageSingleOrders = (props) => {
   };
   const handleDelete = () => {
     console.log(_id);
-    const url = `http://localhost:5000/order?id=${_id}`;
+    const url = `https://secure-everglades-11152.herokuapp.com/order?id=${_id}`;
     console.log(url);
     fetch(url, {
       method: "DELETE",
@@ -73,17 +73,17 @@ const ManageSingleOrders = (props) => {
 
   return (
     <div>
-      <div class="card w-80 h-full bg-base-100 shadow-xl">
-        <figure class="px-10 pt-10">
-          <img src={image} alt="Shoes" class="rounded-xl" />
+      <div className="card w-80 h-full bg-base-100 shadow-xl">
+        <figure className="px-10 pt-10">
+          <img src={image} alt="Shoes" className="rounded-xl" />
         </figure>
-        <div class="card-body items-center text-center">
-          <h2 class="card-title"> Name: {name}</h2>
+        <div className="card-body items-center text-center">
+          <h2 className="card-title"> Name: {name}</h2>
           <p>Address:{address}</p>
-          <h2 class="card-title"> Email: {email}</h2>
-          <h2 class="card-title"> Phone: {phone}</h2>
-          <h2 class="card-title"> Total: {totalPrice}</h2>
-          <h2 class="card-title"> Quantity: {quantity}</h2>
+          <h2 className="card-title"> Email: {email}</h2>
+          <h2 className="card-title"> Phone: {phone}</h2>
+          <h2 className="card-title"> Total: {totalPrice}</h2>
+          <h2 className="card-title"> Quantity: {quantity}</h2>
 
           {!paid ? (
             <h4 className="card__title">
@@ -117,7 +117,7 @@ const ManageSingleOrders = (props) => {
             <label
               onClick={() => setdeleteOrder(props.order)}
               for="my-modal-6"
-              class="btn  btn-error"
+              className="btn  btn-error"
             >
               Delete
             </label>

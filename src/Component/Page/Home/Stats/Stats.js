@@ -10,14 +10,14 @@ const Stats = () => {
       <h1 className="text-accent  text-3xl font-bold">
         What We share in Market Place
       </h1>
-      <div class="m-10 w-3/4 stats stats-vertical lg:stats-horizontal stats shadow ">
-        <div class="stat">
-          <div class="stat-figure text-primary">
+      <div className="m-10 w-3/4 stats stats-vertical lg:stats-horizontal stats shadow ">
+        <div className="stat">
+          <div className="stat-figure text-primary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              class="inline-block w-8 h-8 stroke-current"
+              className="inline-block w-8 h-8 stroke-current"
             >
               <path
                 stroke-linecap="round"
@@ -27,21 +27,21 @@ const Stats = () => {
               ></path>
             </svg>
           </div>
-          <div class="stat-title">Total Likes</div>
+          <div className="stat-title">Total Likes</div>
           <span className="grid  justify-center text-rose-800 text-4xl">
             <ImHappy2 />
           </span>
-          <div class="stat-value text-primary ">25.6K</div>
-          <div class="stat-desc">50% more than last month</div>
+          <div className="stat-value text-primary ">25.6K</div>
+          <div className="stat-desc">50% more than last month</div>
         </div>
 
-        <div class="stat">
-          <div class="stat-figure text-secondary">
+        <div className="stat">
+          <div className="stat-figure text-secondary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              class="inline-block w-8 h-8 stroke-current"
+              className="inline-block w-8 h-8 stroke-current"
             >
               <path
                 stroke-linecap="round"
@@ -51,42 +51,42 @@ const Stats = () => {
               ></path>
             </svg>
           </div>
-          <div class="stat-title">Total Sold Products</div>
+          <div className="stat-title">Total Sold Products</div>
           <span className="grid  justify-center text-5xl text-accent">
             <MdOutlinePayments />
           </span>
-          <div class="stat-value text-secondary ">2.6M</div>
-          <div class="stat-desc">61% more than last month</div>
+          <div className="stat-value text-secondary ">2.6M</div>
+          <div className="stat-desc">61% more than last month</div>
         </div>
 
-        <div class="stat">
-          <div class="stat-figure text-secondary">
-            <div class="avatar online">
-              <div class="w-22 rounded-full">
-                <div class="avatar-group -space-x-6">
-                  <div class="avatar">
-                    <div class="w-12">
+        <div className="stat">
+          <div className="stat-figure text-secondary">
+            <div className="avatar online">
+              <div className="w-22 rounded-full">
+                <div className="avatar-group -space-x-6">
+                  <div className="avatar">
+                    <div className="w-12">
                       <img
                         src="https://api.lorem.space/image/face?hash=4818"
                         alt=""
                       />
                     </div>
                   </div>
-                  <div class="avatar">
-                    <div class="w-12">
+                  <div className="avatar">
+                    <div className="w-12">
                       <img
                         src="https://api.lorem.space/image/face?hash=40311"
                         alt=""
                       />
                     </div>
                   </div>
-                  <div class="avatar">
-                    <div class="w-12">
+                  <div className="avatar">
+                    <div className="w-12">
                       <img src="https://api.lorem.space/image/face?hash=84348" />
                     </div>
                   </div>
-                  <div class="avatar placeholder">
-                    <div class="w-12 bg-neutral-focus text-neutral-content">
+                  <div className="avatar placeholder">
+                    <div className="w-12 bg-neutral-focus text-neutral-content">
                       <span>+99</span>
                     </div>
                   </div>
@@ -97,9 +97,9 @@ const Stats = () => {
           <span className="grid  justify-center text-7xl text-secondary">
             <IoIosPeople />
           </span>
-          <div class="stat-value">86%</div>
-          <div class="stat-title">Tasks done</div>
-          <div class="stat-desc text-secondary">31 tasks remaining</div>
+          <div className="stat-value">86%</div>
+          <div className="stat-title">Tasks done</div>
+          <div className="stat-desc text-secondary">31 tasks remaining</div>
         </div>
       </div>
     </div>
