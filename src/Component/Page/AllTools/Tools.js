@@ -15,7 +15,7 @@ const Tools = (props) => {
 
   return (
     <div className="m-12">
-      <div className="card w-80 h-full bg-base-100 shadow-xl">
+      <div className="card  h-full bg-base-100 shadow-xl">
         <figure className="px-4 pt-6">
           <img src={image} className="" alt="Movie" />
         </figure>

@@ -12,12 +12,12 @@ const AllTools = () => {
     navigate("/manageTools");
   };
   return (
-    <div className="container">
+    <div>
       <div className=" w-50 text-center d-block mx-auto m-4 text-4xl font-bold text-primary ">
         <h1 className=" fw-bolder  mx-auto d-block text-center">Tools</h1>
       </div>
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center justify-center ">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  ">
         {findTools.length === 0 && <Loading></Loading>}
         {findTools.slice(0, 6).map((tool) => (
           <Tools key={tool._id} tool={tool} fromHome={fromHome}></Tools>

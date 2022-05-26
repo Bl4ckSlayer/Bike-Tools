@@ -11,39 +11,40 @@ const Portfolio = () => {
           </div>
         </div>
       </div>
-      <div className="hero lg:h-[80vh]">
-        <div className="hero-content flex-col lg:flex-row">
-          <div>
-            <h1 className="text-5xl lg:text-6xl font-bold">
-              Amirul Islam Tajbid
-            </h1>
+      <div>
+        <div className="hero lg:h-[80vh]">
+          <div className="hero-content flex-col lg:flex-row">
             <div>
-              <p className="py-6 max-w-3xl">
-                Recent CSE Graduate with experience of 5 months web development.
-                Seeking to use my backend development experience in an entry
-                level position to find a job.
-              </p>
-              <a
-                href="https://drive.google.com/file/d/1FW4lYwA08rGy5ZGKaLtlXtzGKq07YrwV/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-primary "
-              >
-                Download CV
-              </a>
+              <h1 className="text-5xl lg:text-6xl font-bold">
+                Amirul Islam Tajbid
+              </h1>
+              <div>
+                <p className="py-6 max-w-3xl">
+                  Recent CSE Graduate with experience of 5 months web
+                  development. Seeking to use my backend development experience
+                  in an entry level position to find a job.
+                </p>
+                <a
+                  href="https://drive.google.com/file/d/1FW4lYwA08rGy5ZGKaLtlXtzGKq07YrwV/view?usp=sharing"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-primary "
+                >
+                  Download CV
+                </a>
+              </div>
+            </div>
+            <div className="h-[60vh] shrink-0">
+              <img src={banner} className="h-full" alt="" />
             </div>
           </div>
-          <div className="h-[60vh] shrink-0">
-            <img src={banner} className="h-full" alt="" />
-          </div>
         </div>
-      </div>
-      <div>
+
         <h2 className="text-center text-4xl font-semibold mb-16">
           Personal Information
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 px-20 mb-16">
-          <div className="card w-96 bg-neutral text-white">
+        <div className="grid grid-cols-1  gap-5 px-20 mb-16">
+          <div className="card w-1/2 bg-neutral mx-auto text-white">
             <div className="card-body items-center text-center">
               <h2 className="card-title">Phone: +880 17781 20603</h2>
               <h2 className="card-title">Address:36 Chandanpura, Chittagong</h2>
@@ -52,7 +53,7 @@ const Portfolio = () => {
               </h4>
             </div>
           </div>
-          <div className="card w-96 bg-neutral text-white">
+          <div className="card bg-neutral w-1/2  mx-auto text-white">
             <div className="card-body items-center text-center">
               <h2 className="card-title">
                 GitHub: https://github.com/Bl4ckSlayer
@@ -65,7 +66,7 @@ const Portfolio = () => {
       <div>
         <h2 className="text-center text-4xl font-semibold mb-16">Skills</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 px-20 mb-16">
-          <div className="card w-96 bg-neutral text-white">
+          <div className="card w-1/2 bg-neutral mx-auto text-white">
             <div className="card-body items-center text-center">
               <h4 className="">
                 HTML5, Bootstrap5,Tailwind CSS, Firebase(Authentication),React
@@ -73,7 +74,7 @@ const Portfolio = () => {
               </h4>
             </div>
           </div>
-          <div className="card w-96 bg-neutral text-white">
+          <div className="card w-1/2 bg-neutral mx-auto text-white">
             <div className="card-body items-center text-center">
               <h4 className="">
                 CSS3, JavaScript(ES6), React JS, Context API, PHP, MySQL,
