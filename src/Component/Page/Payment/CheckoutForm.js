@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { async } from "@firebase/util";
+import { toast } from "react-toastify";
 const CheckoutForm = ({ products }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -23,6 +24,9 @@ const CheckoutForm = ({ products }) => {
       .then((data) => {
         if (data?.clientSecret) {
           setClientSecret(data.clientSecret);
+          toast.success(
+            "we have recieved your payment please check on my orders page"
+          );
         }
       });
   }, [totalPrice]);

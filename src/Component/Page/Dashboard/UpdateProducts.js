@@ -56,6 +56,9 @@ const UpdateProducts = () => {
           })
             .then((res) => res.json())
             .then((data) => {
+              fetch(`http://localhost:5000/service?id=${id}`)
+                .then((res) => res.json())
+                .then((data) => setProduct(data));
               toast.success(`${product[0]?.name}have been updated`);
             });
         }

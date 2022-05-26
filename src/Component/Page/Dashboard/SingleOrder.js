@@ -37,7 +37,15 @@ const SingleOrder = (props) => {
           <h2 class="card-title"> Phone: {phone}</h2>
           <h2 class="card-title"> Total: {totalPrice}</h2>
           <h2 class="card-title"> Quantity: {quantity}</h2>
-
+          {paid && status === "Pending" ? (
+            <h4 className="card__title">
+              Order Status: <span className="text-error">{status}</span>
+            </h4>
+          ) : (
+            <h4 className="card__title">
+              Order Status: <span className="text-success">{status}</span>
+            </h4>
+          )}
           {!paid ? (
             <button
               className="btn btn-secondary mx-4"
@@ -57,15 +65,6 @@ const SingleOrder = (props) => {
                 <span className="text-success">{transactionId}</span>
               </p>
             </div>
-          )}
-          {paid && status === "Pending" ? (
-            <h4 className="card__title">
-              Status: <span className="text-danger">{status}</span>
-            </h4>
-          ) : (
-            <h4 className="card__title">
-              Order Status: <span className="text-success">{status}</span>
-            </h4>
           )}
 
           {!paid && (
