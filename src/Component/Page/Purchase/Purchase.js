@@ -219,8 +219,7 @@ const Purchase = () => {
                       <input
                         type="number"
                         placeholder="Product Quantity"
-                        // value={}
-                        min={1}
+                        defaultValue={minOrderQuantity}
                         className="input input-bordered w-full max-w-xs"
                         {...register("quantity")}
                       />
