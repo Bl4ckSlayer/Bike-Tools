@@ -1,4 +1,8 @@
 import React from "react";
+import { FaBeer } from "react-icons/fa";
+import { IoIosPeople } from "react-icons/io";
+import { MdOutlinePayments } from "react-icons/md";
+import { ImHappy2 } from "react-icons/im";
 
 const Stats = () => {
   return (
@@ -24,7 +28,10 @@ const Stats = () => {
             </svg>
           </div>
           <div class="stat-title">Total Likes</div>
-          <div class="stat-value text-primary">25.6K</div>
+          <span className="grid  justify-center text-rose-800 text-4xl">
+            <ImHappy2 />
+          </span>
+          <div class="stat-value text-primary ">25.6K</div>
           <div class="stat-desc">50% more than last month</div>
         </div>
 
@@ -45,7 +52,10 @@ const Stats = () => {
             </svg>
           </div>
           <div class="stat-title">Total Sold Products</div>
-          <div class="stat-value text-secondary">2.6M</div>
+          <span className="grid  justify-center text-5xl text-accent">
+            <MdOutlinePayments />
+          </span>
+          <div class="stat-value text-secondary ">2.6M</div>
           <div class="stat-desc">61% more than last month</div>
         </div>
 
@@ -56,12 +66,18 @@ const Stats = () => {
                 <div class="avatar-group -space-x-6">
                   <div class="avatar">
                     <div class="w-12">
-                      <img src="https://api.lorem.space/image/face?hash=4818" />
+                      <img
+                        src="https://api.lorem.space/image/face?hash=4818"
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div class="avatar">
                     <div class="w-12">
-                      <img src="https://api.lorem.space/image/face?hash=40311" />
+                      <img
+                        src="https://api.lorem.space/image/face?hash=40311"
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div class="avatar">
@@ -78,6 +94,9 @@ const Stats = () => {
               </div>
             </div>
           </div>
+          <span className="grid  justify-center text-7xl text-secondary">
+            <IoIosPeople />
+          </span>
           <div class="stat-value">86%</div>
           <div class="stat-title">Tasks done</div>
           <div class="stat-desc text-secondary">31 tasks remaining</div>

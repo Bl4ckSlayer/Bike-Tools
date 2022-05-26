@@ -6,7 +6,8 @@ const Banner2 = () => {
       <div class="carousel w-full">
         <div id="slide1" class="carousel-item relative w-full">
           <img
-            src="https://api.lorem.space/image/car?w=800&h=200&hash=8B7BCDC2"
+            src="
+            https://i.ibb.co/pvk5trn/ymus-5948-940x380-72dpi-2022-gor-mcy-combo.jpg"
             class="w-full"
           />
           <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -20,7 +21,8 @@ const Banner2 = () => {
         </div>
         <div id="slide2" class="carousel-item relative w-full">
           <img
-            src="https://api.lorem.space/image/car?w=800&h=200&hash=500B67FB"
+            src="
+            https://i.ibb.co/9b790Qt/banner1.jpg"
             class="w-full"
           />
           <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -34,7 +36,7 @@ const Banner2 = () => {
         </div>
         <div id="slide3" class="carousel-item relative w-full">
           <img
-            src="https://api.lorem.space/image/car?w=800&h=200&hash=A89D0DE6"
+            src="https://i.ibb.co/0hqywqN/tmv-motorcycle-parts-BANNER-1920x648.jpg"
             class="w-full"
           />
           <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -48,7 +50,7 @@ const Banner2 = () => {
         </div>
         <div id="slide4" class="carousel-item relative w-full">
           <img
-            src="https://api.lorem.space/image/car?w=800&h=200&hash=225E6693"
+            src="https://i.ibb.co/gPR7k0W/image-processing20200505-26337-1ymw9oh.jpg"
             class="w-full"
           />
           <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
