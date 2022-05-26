@@ -1,9 +1,15 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 import Rating from "../../AllRatings/Rating";
 import Loading from "../../Shared/Loading/Loading";
 
 const HomeRating = () => {
+  const navigate = useNavigate();
+
+  const goToManageInventory = () => {
+    navigate("/review");
+  };
   const url = `https://secure-everglades-11152.herokuapp.com/rating`;
   const { data: review, isLoading } = useQuery("rating", () =>
     fetch(url, {
@@ -27,6 +33,14 @@ const HomeRating = () => {
         {review.slice(0, 3).map((tool) => (
           <Rating key={tool._id} tool={tool}></Rating>
         ))}
+      </div>
+      <div className="text-center mb-5">
+        <button
+          onClick={() => goToManageInventory()}
+          className="btn btn-primary"
+        >
+          All Review
+        </button>
       </div>
     </div>
   );
