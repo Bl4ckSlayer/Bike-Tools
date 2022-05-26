@@ -92,8 +92,7 @@ const Purchase = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div class="hero min-h-screen bg-base-200">
             <div class="hero-content flex-col lg:flex-row-reverse">
-              <img src={image} alt="" />
-
+              <img src={image} alt="" className="w-1/4" />
               <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <div class="card-body">
                   <div class="form-control">
@@ -230,12 +229,20 @@ const Purchase = () => {
                       </label>
                     </div>
                   </div>
-
-                  <input
-                    className="btn  btn-primary  mx-auto mt-4"
-                    type="submit"
-                    value="Order Now !"
-                  />
+                  {!quantity ? (
+                    <input
+                      className="btn  btn-primary  mx-auto mt-4"
+                      disabled
+                      type="submit"
+                      value="Order Now !"
+                    />
+                  ) : (
+                    <input
+                      className="btn  btn-primary  mx-auto mt-4"
+                      type="submit"
+                      value="Order Now !"
+                    />
+                  )}
                 </div>
               </div>
             </div>

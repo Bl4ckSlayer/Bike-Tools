@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import auth from "../../../firebase.init";
 import useAdmin from "../Hooks/useAdmin";
 const Dashboard = () => {
@@ -20,15 +20,15 @@ const Dashboard = () => {
         <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
           <li>
-            <Link to="/dashboard">My Profile</Link>
+            <NavLink to="/dashboard">My Profile</NavLink>
           </li>
           {!admin && (
             <>
               <li>
-                <Link to="/dashboard/myorders">My Orders</Link>
+                <NavLink to="/dashboard/myorders">My Orders</NavLink>
               </li>
               <li>
-                <Link to="/dashboard/addreview">Add A Review</Link>
+                <NavLink to="/dashboard/addreview">Add A Review</NavLink>
               </li>
             </>
           )}
@@ -36,16 +36,18 @@ const Dashboard = () => {
           {admin && (
             <>
               <li>
-                <Link to="/dashboard/makeAdmin">Make Admin</Link>
+                <NavLink to="/dashboard/makeAdmin">Make Admin</NavLink>
               </li>
               <li>
-                <Link to="/dashboard/addProducts">Add products</Link>
+                <NavLink to="/dashboard/addProducts">Add products</NavLink>
               </li>
               <li>
-                <Link to="/dashboard/manageOrders">Manage Orders</Link>
+                <NavLink to="/dashboard/manageOrders">Manage Orders</NavLink>
               </li>
               <li>
-                <Link to="/dashboard/manageProducts">Manage Products</Link>
+                <NavLink to="/dashboard/manageProducts">
+                  Manage Products
+                </NavLink>
               </li>
             </>
           )}

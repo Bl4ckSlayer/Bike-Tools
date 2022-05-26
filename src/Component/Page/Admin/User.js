@@ -19,7 +19,7 @@ const User = ({ user, refetch, index }) => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           refetch();
-          toast.success(`Successfully made ${name} an admin`);
+          toast.success(`Successfully made ${email} an admin`);
         }
       });
   };
@@ -32,14 +32,14 @@ const User = ({ user, refetch, index }) => {
     })
       .then((res) => {
         if (res.status === 403) {
-          toast.error(`Failed to Remove ${name} from admin`);
+          toast.error(`Failed to Remove ${email} from admin`);
         }
         return res.json();
       })
       .then((data) => {
         if (data.modifiedCount > 0) {
           refetch();
-          toast.success(`Successfully removed ${name} as admin`);
+          toast.success(`Successfully removed ${email} as admin`);
         }
       });
   };

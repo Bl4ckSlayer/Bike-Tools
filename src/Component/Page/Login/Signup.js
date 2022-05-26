@@ -287,7 +287,7 @@ import {
 
 import { useForm } from "react-hook-form";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import useToken from "../Hooks/useToken";
 
@@ -307,6 +307,8 @@ const Signup = () => {
   const [token] = useToken(user || gUser);
   const navigate = useNavigate();
 
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
   let signInError;
 
   if (loading || gLoading || updating) {
@@ -324,7 +326,7 @@ const Signup = () => {
   }
 
   if (token) {
-    navigate("/");
+    navigate(from, { replace: true });
   }
 
   const onSubmit = async (data) => {
