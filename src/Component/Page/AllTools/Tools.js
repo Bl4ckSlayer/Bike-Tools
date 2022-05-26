@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 const Tools = (props) => {
   const { findTools, tool, fromHome, setFindTools, setDeleteProduct } = props;
-  // const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const newPath = (id) => {
     navigate(`/purchase/${id}`);
@@ -19,7 +17,7 @@ const Tools = (props) => {
     <div className="m-12">
       <div className="card w-80 h-full bg-base-100 shadow-xl">
         <figure className="px-4 pt-6">
-          <img src={image} className="h-4/6" alt="Movie" />
+          <img src={image} className="" alt="Movie" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">Product name: {name}</h2>

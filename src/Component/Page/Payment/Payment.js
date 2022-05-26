@@ -31,11 +31,15 @@ const Payment = () => {
           <img src={products?.image} alt="Shoes" className="rounded-xl" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Name :{products?.name}</h2>
-          <h2 className="card-title">Phone : {products?.phone}</h2>
-          <h2 className="card-title">Price To Pay :{products?.totalPrice}</h2>
-          <h2 className="card-title">Address :{products?.address}</h2>
-          <h2 className="card-title">Price: {products?.totalPrice}</h2>
+          <h2 className="card-title">
+            Hi !!! <span className="text-accent">{products?.UserName} </span>
+          </h2>
+          <h2 className="card-title">
+            Please pay
+            <span className="text-accent">{products?.totalPrice}$</span> to
+            confirm your order{" "}
+            <span className="text-accent">{products?.name}</span>
+          </h2>
         </div>
       </div>
       <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">

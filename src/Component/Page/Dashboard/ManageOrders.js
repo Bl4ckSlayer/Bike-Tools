@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import DeleteOrder from "./DeleteOrder";
 import ManageSingleOrders from "./ManageSingleOrders";
 
@@ -22,8 +23,12 @@ const ManageOrders = () => {
       <h2 className="text-4xl mb-8 font-extrabold text-center grid ">
         Manage Order
       </h2>
-
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {orders.length === 0 && (
+        <h2 className="text-4xl mb-8 font-extrabold text-center grid text-error ">
+          No Order Found
+        </h2>
+      )}
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
         {orders.map((order) => (
           <ManageSingleOrders
             key={order._id}

@@ -49,6 +49,7 @@ function App() {
           }
         >
           <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
           <Route path="myorders" element={<MyOrders></MyOrders>}></Route>
           <Route path="addreview" element={<AddReview></AddReview>}></Route>
 
@@ -78,7 +79,11 @@ function App() {
           ></Route>
           <Route
             path="manageOrders"
-            element={<ManageOrders></ManageOrders>}
+            element={
+              <RequireAdmin>
+                <ManageOrders></ManageOrders>
+              </RequireAdmin>
+            }
           ></Route>
         </Route>
         <Route

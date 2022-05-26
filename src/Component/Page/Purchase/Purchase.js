@@ -92,7 +92,9 @@ const Purchase = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
-              <img src={image} alt="" className="w-1/4" />
+              <figure>
+                <img src={image} alt="" className="" />
+              </figure>
               <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <div className="card-body">
                   <div className="form-control">
@@ -195,7 +197,9 @@ const Purchase = () => {
                   </div>
                   <div className="form-control">
                     <label className="label">
-                      <span className="label-text">Minimum Quantity</span>
+                      <span className="label-text">
+                        Minimum Quantity To Order
+                      </span>
                     </label>
                     <div className="input-group w-75 mx-auto">
                       <input
@@ -209,7 +213,7 @@ const Purchase = () => {
                   </div>
                   <div className="form-control">
                     <label className="label">
-                      <span className="label-text">Amount</span>
+                      <span className="label-text">Input Your Quantity</span>
                     </label>
                     <div className="input-group w-75 mx-auto">
                       <input

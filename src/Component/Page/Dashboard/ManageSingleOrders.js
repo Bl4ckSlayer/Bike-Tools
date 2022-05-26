@@ -16,6 +16,7 @@ const ManageSingleOrders = (props) => {
     phone,
     totalPrice,
     quantity,
+    UserName,
   } = props.order;
 
   const changeStatus = (e) => {
@@ -52,24 +53,6 @@ const ManageSingleOrders = (props) => {
       .then((res) => res.json())
       .then((data) => setOrders(data));
   };
-  const handleDelete = () => {
-    console.log(_id);
-    const url = `https://secure-everglades-11152.herokuapp.com/order?id=${_id}`;
-    console.log(url);
-    fetch(url, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount > 0) {
-          const remaining = orders.filter((item) => item._id !== _id);
-          //   toast.success("Order successfully deleted");
-
-          setOrders(remaining);
-        }
-      });
-  };
 
   return (
     <div>
@@ -78,24 +61,41 @@ const ManageSingleOrders = (props) => {
           <img src={image} alt="Shoes" className="rounded-xl" />
         </figure>
         <div className="card-body items-center text-center">
-          <h2 className="card-title"> Name: {name}</h2>
-          <p>Address:{address}</p>
-          <h2 className="card-title"> Email: {email}</h2>
-          <h2 className="card-title"> Phone: {phone}</h2>
-          <h2 className="card-title"> Total: {totalPrice}</h2>
-          <h2 className="card-title"> Quantity: {quantity}</h2>
+          <h2 className="card-title">
+            Product Name: <span className="uppercase text-info">{name}</span>
+          </h2>
+          <h4 className="card-title text-lg">
+            Customer:
+            <span className=" text-sm text-info">{UserName}</span>
+          </h4>
+          <h2 className="card-title">
+            Address: <span className="text-sm text-info">{address}</span>
+          </h2>
+
+          <h2 className="card-title">
+            Email: <span className="text-sm text-info"> {email}</span>
+          </h2>
+          <h2 className="card-title">
+            Phone: <span className="uppercase text-info"> {phone}</span>
+          </h2>
+          <h2 className="card-title">
+            Total: <span className="uppercase text-info">{totalPrice}</span>
+          </h2>
+          <h2 className="card-title">
+            Quantity: <span className="uppercase text-info">{quantity}</span>
+          </h2>
 
           {!paid ? (
-            <h4 className="card__title">
+            <h4 className="card_title">
               Payment: <span className="text-danger">Pending</span>
             </h4>
           ) : (
-            <h4 className="card__title">
+            <h4 className="card_title">
               Payment: <span className="text-success">Paid</span>
             </h4>
           )}
           {status === "Pending" ? (
-            <h4 className="card__title">
+            <h4 className="card_title">
               Status: <span className="text-danger">{status}</span>
             </h4>
           ) : (
@@ -103,15 +103,21 @@ const ManageSingleOrders = (props) => {
               Status: <span className="text-success">{status}</span>
             </h4>
           )}
-          {status === "Pending" && (
-            <div className="col-12">
-              <button
-                onClick={() => changeStatus()}
-                className="btn btn-accent text-white text-center"
-              >
-                Shipped
-              </button>
-            </div>
+          {status === "pending" && paid ? (
+            <button
+              onClick={() => changeStatus()}
+              className="btn btn-success text-center"
+            >
+              Shipped
+            </button>
+          ) : (
+            <button
+              disabled
+              onClick={() => changeStatus()}
+              className="btn btn-success text-center"
+            >
+              Shipped
+            </button>
           )}
           {!transactionId && (
             <label
