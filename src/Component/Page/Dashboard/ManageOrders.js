@@ -7,7 +7,13 @@ const ManageOrders = () => {
   const [deleteOrder, setdeleteOrder] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/order")
+    fetch("http://localhost:5000/order", {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [deleteOrder]);

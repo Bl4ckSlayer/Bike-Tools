@@ -24,6 +24,7 @@ import Footer from "./Component/Page/Shared/Footer/Footer";
 import Blogs from "./Component/Page/Portfolio/Blogs";
 import Portfolio from "./Component/Page/Portfolio/Portfolio";
 import ErrorRoute from "./Component/Page/Shared/ErrorRoute/ErrorRoute";
+import RequireAdmin from "./Component/Page/Login/RequireAdmin";
 function App() {
   return (
     <div>
@@ -58,14 +59,29 @@ function App() {
           <Route path="myorders" element={<MyOrders></MyOrders>}></Route>
           <Route path="addreview" element={<AddReview></AddReview>}></Route>
 
-          <Route path="makeAdmin" element={<AddAdmin></AddAdmin>}></Route>
+          <Route
+            path="makeAdmin"
+            element={
+              <RequireAdmin>
+                <AddAdmin></AddAdmin>
+              </RequireAdmin>
+            }
+          ></Route>
           <Route
             path="manageProducts"
-            element={<ManageProducts></ManageProducts>}
+            element={
+              <RequireAdmin>
+                <ManageProducts></ManageProducts>
+              </RequireAdmin>
+            }
           ></Route>
           <Route
             path="addProducts"
-            element={<AddProducts></AddProducts>}
+            element={
+              <RequireAdmin>
+                <AddProducts></AddProducts>
+              </RequireAdmin>
+            }
           ></Route>
           <Route
             path="manageOrders"
@@ -91,9 +107,9 @@ function App() {
         <Route
           path="update/:id"
           element={
-            <RequireAuth>
+            <RequireAdmin>
               <UpdateProducts></UpdateProducts>
-            </RequireAuth>
+            </RequireAdmin>
           }
         ></Route>
         <Route path="login" element={<Login></Login>}></Route>

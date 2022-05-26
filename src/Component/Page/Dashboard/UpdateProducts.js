@@ -43,6 +43,7 @@ const UpdateProducts = () => {
           const updatedProduct = {
             price: data.price,
             quantity: data.quantity,
+            minOrderQuantity: data.minOrderQuantity,
             image: image,
           };
 
@@ -60,6 +61,7 @@ const UpdateProducts = () => {
                 .then((res) => res.json())
                 .then((data) => setProduct(data));
               toast.success(`${product[0]?.name}have been updated`);
+              reset();
             });
         }
       });
@@ -162,7 +164,7 @@ const UpdateProducts = () => {
                       })}
                     />
                     <label className="label">
-                      {errors.naminOrderQuantityme?.type === "required" && (
+                      {errors.minOrderQuantity?.type === "required" && (
                         <span className="label-text-alt text-red-500">
                           {errors.minOrderQuantity.message}
                         </span>
