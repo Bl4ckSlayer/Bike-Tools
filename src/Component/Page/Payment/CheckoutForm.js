@@ -24,9 +24,9 @@ const CheckoutForm = ({ products }) => {
       .then((data) => {
         if (data?.clientSecret) {
           setClientSecret(data.clientSecret);
-          toast.success(
-            "we have recieved your payment please check on my orders page"
-          );
+          // toast.success(
+          //   "we have recieved your payment please check on my orders page"
+          // );
         }
       });
   }, [totalPrice]);
@@ -67,7 +67,10 @@ const CheckoutForm = ({ products }) => {
       setCardError("");
       setTransactionId(paymentIntent.id);
       console.log(paymentIntent);
-      setSuccess("Congrats! Your payment is completed.");
+      setSuccess("Congrats! Your payment is completed. Check My Orders Page");
+      toast.success(
+        "Congrats! Your payment is completed. Check My Orders Page"
+      );
 
       //store payment on database
       const payment = {

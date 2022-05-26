@@ -54,7 +54,7 @@ const Login = () => {
           <h2 className="text-center text-2xl font-bold">Login</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">
-              <label className="label">
+              <label htmlFor="email" className="block mb-2 text-sm ">
                 <span className="label-text">Email</span>
               </label>
               <input
@@ -86,7 +86,7 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control w-full max-w-xs">
-              <label className="label">
+              <label htmlFor="password" className="text-sm ">
                 <span className="label-text">Password</span>
               </label>
               <input
@@ -120,7 +120,7 @@ const Login = () => {
 
             {signInError}
             <input
-              className="btn w-full max-w-xs text-white"
+              className="btn btn-primary text-dark w-full max-w-sme"
               type="submit"
               value="Login"
             />

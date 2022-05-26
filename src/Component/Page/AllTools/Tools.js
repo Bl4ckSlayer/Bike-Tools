@@ -31,14 +31,25 @@ const Tools = (props) => {
           <div class="card-actions justify-end">
             {fromHome !== undefined ? (
               <>
-                <label
-                  onClick={() => {
-                    newPath(tool._id);
-                  }}
-                  className="btn  btn-secondary  text-white text-center"
-                >
-                  Purchase
-                </label>
+                {!quantity ? (
+                  <label
+                    onClick={() => {
+                      newPath(tool._id);
+                    }}
+                    className="btn  btn-secondary btn-disabled  text-white text-center"
+                  >
+                    Purchase
+                  </label>
+                ) : (
+                  <label
+                    onClick={() => {
+                      newPath(tool._id);
+                    }}
+                    className="btn  btn-secondary   text-white text-center"
+                  >
+                    Purchase
+                  </label>
+                )}
               </>
             ) : (
               <>

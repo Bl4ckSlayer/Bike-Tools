@@ -13,18 +13,20 @@ const UpdateProducts = () => {
   const imageStorageKey = "4e369d9a8ccc08de599f3e949fd61ac0";
 
   const [product, setProduct] = useState([]);
-  console.log(product);
+  // console.log(product);
   useEffect(() => {
     fetch(`http://localhost:5000/service?id=${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
 
-  console.log(product);
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
 
-    const image = data.image[0];
+    let image = data.image[0];
+    if (!image) {
+      image = product[0]?.image;
+    }
     const formData = new FormData();
     formData.append("image", image);
 
@@ -72,7 +74,7 @@ const UpdateProducts = () => {
       <div className=" grid  justify-center items-center ">
         <div class="card  w-80 h-full bg-base-100  ">
           <figure class="px-4 pt-6">
-            <img src={product[0]?.image} className="h-4/6" alt="Movie" />
+            <img src={product[0]?.image} className="h-4/6 " alt="Movie" />
           </figure>
           <div class="card-body">
             <h2 class="card-title">Product name: {product[0]?.name}</h2>
@@ -94,7 +96,7 @@ const UpdateProducts = () => {
                 <img
                   src={product[0]?.image}
                   alt="9e790bb99536fa746850cd1b2d7c954e"
-                  className="h-2/4 w-2/4"
+                  className="h-2/4 w-1/4"
                   border="0"
                 />
               </figure>
@@ -179,12 +181,7 @@ const UpdateProducts = () => {
                       <input
                         type="file"
                         className="input input-bordered w-full max-w-xs"
-                        {...register("image", {
-                          required: {
-                            value: true,
-                            message: " ",
-                          },
-                        })}
+                        {...register("image")}
                       />
                       <label className="label">
                         {errors.file?.type === "required" && (

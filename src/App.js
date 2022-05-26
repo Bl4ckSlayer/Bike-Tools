@@ -39,14 +39,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        <Route
-          path="review"
-          element={
-            <RequireAuth>
-              <AllRatings></AllRatings>
-            </RequireAuth>
-          }
-        ></Route>
+        <Route path="review" element={<AllRatings></AllRatings>}></Route>
         <Route
           path="dashboard"
           element={

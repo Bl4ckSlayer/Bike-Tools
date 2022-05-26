@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBeer } from "react-icons/fa";
+
 import { IoIosPeople } from "react-icons/io";
 import { MdOutlinePayments } from "react-icons/md";
 import { ImHappy2 } from "react-icons/im";
