@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import Loading from "../Shared/Loading/Loading";
 import User from "./User";
-
+// asdasdds
 const AddAdmin = () => {
   const {
     data: users,
@@ -19,6 +19,7 @@ const AddAdmin = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+  console.log(users);
   return (
     <div>
       <div className="overflow-x-auto">

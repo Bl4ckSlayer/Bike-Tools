@@ -11,7 +11,7 @@ const Tools = (props) => {
 
   const { _id, image, name, minOrderQuantity, description, quantity, price } =
     props.tool;
-  console.log(_id);
+  // console.log(props.tool);
 
   return (
     <div className="m-12">
@@ -31,15 +31,16 @@ const Tools = (props) => {
           <div className="card-actions justify-end">
             {fromHome !== undefined ? (
               <>
-                {!quantity ? (
-                  <label
+                {quantity < minOrderQuantity ? (
+                  <button
+                    disabled
                     onClick={() => {
                       newPath(tool._id);
                     }}
-                    className="btn  btn-secondary btn-disabled  text-white text-center"
+                    className="btn  btn-secondary text-white text-center"
                   >
                     Purchase
-                  </label>
+                  </button>
                 ) : (
                   <label
                     onClick={() => {

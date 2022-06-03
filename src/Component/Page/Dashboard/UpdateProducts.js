@@ -44,8 +44,8 @@ const UpdateProducts = () => {
           const image = result.data.url;
           const updatedProduct = {
             price: data.price,
-            quantity: data.quantity,
-            minOrderQuantity: data.minOrderQuantity,
+            quantity: parseInt(data.quantity),
+            minOrderQuantity: parseInt(data.minOrderQuantity),
             image: image,
           };
 

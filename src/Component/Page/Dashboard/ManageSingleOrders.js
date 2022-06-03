@@ -103,7 +103,7 @@ const ManageSingleOrders = (props) => {
               Status: <span className="text-success">{status}</span>
             </h4>
           )}
-          {status === "pending" && paid ? (
+          {status === "Pending" && paid ? (
             <button
               onClick={() => changeStatus()}
               className="btn btn-success text-center"

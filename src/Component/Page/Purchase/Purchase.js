@@ -25,12 +25,14 @@ const Purchase = () => {
     tool;
   console.log(tool);
   const onSubmit = async (data) => {
-    console.log(typeof data.quantity);
+    // console.log(typeof data.quantity);
+    // console.log(data.quantity, data.minQuantity);
 
     const prevQuantity = parseInt(quantity);
     const newQuantity = parseInt(data.quantity);
-    const minQuantity = parseInt(data.minQuantity);
+    const minQuantity = parseInt(minOrderQuantity);
     console.log(minQuantity);
+
     if (data.quantity === "" || data.quantity === undefined) {
       return toast.error("Empty Quantity");
     }
@@ -220,19 +222,25 @@ const Purchase = () => {
                         type="number"
                         placeholder="Product Quantity"
                         defaultValue={minOrderQuantity}
+                        // min={minOrderQuantity}
                         className="input input-bordered w-full max-w-xs"
-                        {...register("quantity")}
+                        {...register("quantity", {
+                          required: {
+                            value: true,
+                            message: "Product Quantity is Required",
+                          },
+                        })}
                       />
                       <label className="label">
-                        {errors.quantity?.type === "required" && (
+                        {errors?.quantity?.type === "required" && (
                           <span className="label-text-alt text-red-500">
-                            {errors.prevQuantity.message}
+                            {errors?.prevQuantity?.message}
                           </span>
                         )}
                       </label>
                     </div>
                   </div>
-                  {!quantity ? (
+                  {quantity < minOrderQuantity ? (
                     <input
                       className="btn  btn-primary  mx-auto mt-4"
                       disabled
