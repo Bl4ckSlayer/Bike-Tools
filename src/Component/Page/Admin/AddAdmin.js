@@ -9,7 +9,7 @@ const AddAdmin = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("https://secure-everglades-11152.herokuapp.com/user", {
+    fetch("https://assignment-12-server-bl4ckslayer.vercel.app/user", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

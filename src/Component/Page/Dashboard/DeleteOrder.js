@@ -12,7 +12,7 @@ const DeleteOrder = ({
   const { _id, name, description, price, quantity } = deleteOrder;
 
   const handleDelete = () => {
-    const url = `https://secure-everglades-11152.herokuapp.com/order?id=${_id}`;
+    const url = `https://assignment-12-server-bl4ckslayer.vercel.app/order?id=${_id}`;
     fetch(url, {
       method: "DELETE",
     })

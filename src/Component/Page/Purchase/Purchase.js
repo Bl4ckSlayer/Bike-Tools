@@ -17,7 +17,7 @@ const Purchase = () => {
   } = useForm();
   const imageStorageKey = "4e369d9a8ccc08de599f3e949fd61ac0";
   useEffect(() => {
-    fetch(`https://secure-everglades-11152.herokuapp.com/purchase/${id}`)
+    fetch(`https://assignment-12-server-bl4ckslayer.vercel.app/purchase/${id}`)
       .then((res) => res.json())
       .then((data) => setTool(data));
   }, []);
@@ -63,7 +63,7 @@ const Purchase = () => {
     const oldProduct = {
       quantity: parseInt(prevQuantity - newQuantity),
     };
-    fetch(`https://secure-everglades-11152.herokuapp.com/order`, {
+    fetch(`https://assignment-12-server-bl4ckslayer.vercel.app/order`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -71,7 +71,7 @@ const Purchase = () => {
       },
       body: JSON.stringify(product),
     });
-    fetch(`https://secure-everglades-11152.herokuapp.com/service/${id}`, {
+    fetch(`https://assignment-12-server-bl4ckslayer.vercel.app/service/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -82,7 +82,9 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => {
         toast.success(`${name} has been ordered Please check my order`);
-        fetch(`https://secure-everglades-11152.herokuapp.com/purchase/${id}`)
+        fetch(
+          `https://assignment-12-server-bl4ckslayer.vercel.app/purchase/${id}`
+        )
           .then((res) => res.json())
           .then((data) => setTool(data));
       });

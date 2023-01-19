@@ -17,7 +17,7 @@ const MyProfile = () => {
     refetch,
   } = useQuery("myUsers", () =>
     fetch(
-      `https://secure-everglades-11152.herokuapp.com/user?email=${user?.email}`,
+      `https://assignment-12-server-bl4ckslayer.vercel.app/user?email=${user?.email}`,
       {
         method: "GET",
         headers: {
@@ -31,7 +31,7 @@ const MyProfile = () => {
   }
 
   // useEffect(() => {
-  //   fetch(`https://secure-everglades-11152.herokuapp.com/user?email=${user?.email}`, {
+  //   fetch(`https://assignment-12-server-bl4ckslayer.vercel.app/user?email=${user?.email}`, {
   //     method: "GET",
   //     headers: {
   //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,

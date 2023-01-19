@@ -6,7 +6,7 @@
 
 ### Live Server Website:
 
-# [Server ](https://secure-everglades-11152.herokuapp.com/)
+# [Server ](https://assignment-12-server-bl4ckslayer.vercel.app/)
 
 ### Client Side Code:
 

@@ -15,7 +15,9 @@ const UpdateProducts = () => {
   const [product, setProduct] = useState([]);
   // console.log(product);
   useEffect(() => {
-    fetch(`https://secure-everglades-11152.herokuapp.com/service?id=${id}`)
+    fetch(
+      `https://assignment-12-server-bl4ckslayer.vercel.app/service?id=${id}`
+    )
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
@@ -50,7 +52,7 @@ const UpdateProducts = () => {
           };
 
           fetch(
-            `https://secure-everglades-11152.herokuapp.com/service?id=${id}`,
+            `https://assignment-12-server-bl4ckslayer.vercel.app/service?id=${id}`,
             {
               method: "PUT",
               headers: {
@@ -63,7 +65,7 @@ const UpdateProducts = () => {
             .then((res) => res.json())
             .then((data) => {
               fetch(
-                `https://secure-everglades-11152.herokuapp.com/service?id=${id}`
+                `https://assignment-12-server-bl4ckslayer.vercel.app/service?id=${id}`
               )
                 .then((res) => res.json())
                 .then((data) => setProduct(data));

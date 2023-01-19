@@ -10,7 +10,7 @@ const HomeRating = () => {
   const goToManageInventory = () => {
     navigate("/review");
   };
-  const url = `https://secure-everglades-11152.herokuapp.com/rating`;
+  const url = `https://assignment-12-server-bl4ckslayer.vercel.app/rating`;
   const { data: review, isLoading } = useQuery("rating", () =>
     fetch(url, {
       method: "GET",

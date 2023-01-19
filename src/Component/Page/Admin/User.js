@@ -4,12 +4,15 @@ import { toast, ToastContainer } from "react-toastify";
 const User = ({ user, refetch, index }) => {
   const { email, role, phone, name, address } = user;
   const makeAdmin = () => {
-    fetch(`https://secure-everglades-11152.herokuapp.com/user/admin/${email}`, {
-      method: "PUT",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://assignment-12-server-bl4ckslayer.vercel.app/user/admin/${email}`,
+      {
+        method: "PUT",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 403) {
           toast.error("Failed to Make an admin");
@@ -25,7 +28,7 @@ const User = ({ user, refetch, index }) => {
   };
   const removeAdmin = () => {
     fetch(
-      `https://secure-everglades-11152.herokuapp.com/user/removeAdmin/${email}`,
+      `https://assignment-12-server-bl4ckslayer.vercel.app/user/removeAdmin/${email}`,
       {
         method: "PUT",
         headers: {

@@ -24,13 +24,16 @@ const ManageSingleOrders = (props) => {
       status: "Shipped",
     };
     console.log(updatedProduct.quantity);
-    fetch(`https://secure-everglades-11152.herokuapp.com/order?id=${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedProduct),
-    })
+    fetch(
+      `https://assignment-12-server-bl4ckslayer.vercel.app/order?id=${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -44,7 +47,7 @@ const ManageSingleOrders = (props) => {
         setOrders(orders);
       });
 
-    fetch(`https://secure-everglades-11152.herokuapp.com/order`, {
+    fetch(`https://assignment-12-server-bl4ckslayer.vercel.app/order`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

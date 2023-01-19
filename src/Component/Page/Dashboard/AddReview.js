@@ -14,8 +14,8 @@ const AddReview = () => {
   } = useForm();
 
   const { isLoading } = useQuery("reviews", () =>
-    fetch("https://secure-everglades-11152.herokuapp.com/rating").then((res) =>
-      res.json()
+    fetch("https://assignment-12-server-bl4ckslayer.vercel.app/rating").then(
+      (res) => res.json()
     )
   );
 
@@ -39,7 +39,7 @@ const AddReview = () => {
             description: data.description,
           };
           // send to your database
-          fetch("https://secure-everglades-11152.herokuapp.com/rating", {
+          fetch("https://assignment-12-server-bl4ckslayer.vercel.app/rating", {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -14,8 +14,8 @@ const AddProducts = () => {
   } = useForm();
 
   const { isLoading } = useQuery("service", () =>
-    fetch("https://secure-everglades-11152.herokuapp.com/service").then((res) =>
-      res.json()
+    fetch("https://assignment-12-server-bl4ckslayer.vercel.app/service").then(
+      (res) => res.json()
     )
   );
   const [findTools, setFindTools] = FindTools();
@@ -44,7 +44,7 @@ const AddProducts = () => {
             price: data.price,
           };
 
-          fetch("https://secure-everglades-11152.herokuapp.com/service", {
+          fetch("https://assignment-12-server-bl4ckslayer.vercel.app/service", {
             method: "POST",
             headers: {
               "content-type": "application/json",

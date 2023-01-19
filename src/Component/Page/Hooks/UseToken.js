@@ -8,13 +8,16 @@ const useToken = (user) => {
 
     const currentUser = { email: email, name: name };
     if (email) {
-      fetch(`https://secure-everglades-11152.herokuapp.com/user/${email}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(currentUser),
-      })
+      fetch(
+        `https://assignment-12-server-bl4ckslayer.vercel.app/user/${email}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log("data inside useToken", data);

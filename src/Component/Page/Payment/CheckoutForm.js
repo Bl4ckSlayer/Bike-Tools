@@ -13,7 +13,7 @@ const CheckoutForm = ({ products }) => {
   const { totalPrice, userName, email, _id } = products;
   useEffect(() => {
     fetch(
-      "https://secure-everglades-11152.herokuapp.com/create-payment-intent",
+      "https://assignment-12-server-bl4ckslayer.vercel.app/create-payment-intent",
       {
         method: "POST",
         headers: {
@@ -81,14 +81,17 @@ const CheckoutForm = ({ products }) => {
         transactionId: paymentIntent.id,
       };
 
-      fetch(`https://secure-everglades-11152.herokuapp.com/order/${_id}`, {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(payment),
-      })
+      fetch(
+        `https://assignment-12-server-bl4ckslayer.vercel.app/order/${_id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify(payment),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setProcessing(false);

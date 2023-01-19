@@ -14,7 +14,7 @@ const UpdateProfile = ({ treatment, setTreatment, refetch }) => {
       address: event.target.address.value,
     };
     fetch(
-      `https://secure-everglades-11152.herokuapp.com/user/update/${user?.email}`,
+      `https://assignment-12-server-bl4ckslayer.vercel.app/user/update/${user?.email}`,
       {
         method: "PUT",
         headers: { "content-type": "application/json" },

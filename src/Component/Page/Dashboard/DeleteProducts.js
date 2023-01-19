@@ -9,7 +9,7 @@ const DeleteProducts = ({
   const { _id, name, description, price, quantity } = deleteProduct;
 
   const handleDelete = () => {
-    const url = `https://secure-everglades-11152.herokuapp.com/service?id=${_id}`;
+    const url = `https://assignment-12-server-bl4ckslayer.vercel.app/service?id=${_id}`;
     fetch(url, {
       method: "DELETE",
     })

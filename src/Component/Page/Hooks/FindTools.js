@@ -4,7 +4,7 @@ const FindTools = () => {
   const [findTools, setFindTools] = useState([]);
 
   useEffect(() => {
-    fetch("https://secure-everglades-11152.herokuapp.com/service")
+    fetch("https://assignment-12-server-bl4ckslayer.vercel.app/service")
       .then((res) => res.json())
       .then((data) => setFindTools(data));
   }, []);
